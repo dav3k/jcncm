@@ -9,14 +9,14 @@
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────
 // Change this to a strong random string. Must match GitHub webhook secret.
-define('WEBHOOK_SECRET', 'CHANGE_THIS_TO_A_LONG_RANDOM_STRING');
+define('WEBHOOK_SECRET', 'a55d7bd1bb55267f21f2b3b4075f9f13733c8fb4017694545fdabe1eb3318977');
 
 // Absolute path to the cPanel-managed git repo.
 // Typically: /home/<cpanel_user>/repositories/jcncm
-define('REPO_PATH', '/home/CPANEL_USER/repositories/jcncm');
+define('REPO_PATH', '/home/jcncmc8d/repositories/jcncm');
 
 // Absolute path to public_html (where the site is served from).
-define('DEPLOY_PATH', '/home/CPANEL_USER/public_html');
+define('DEPLOY_PATH', '/home/jcncmc8d/public_html');
 
 // Path to git binary on BigRock cPanel.
 define('GIT_BIN', '/usr/local/cpanel/3rdparty/bin/git');
