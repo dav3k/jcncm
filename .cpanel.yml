@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/$USER/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp logo.jpg $DEPLOYPATH
+    - /bin/cp -r photos $DEPLOYPATH
+    - /bin/cp -r video $DEPLOYPATH

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JCNCM — Jesus Christ of New Creation Ministries</title>
+<meta name="description" content="A young, Spirit-filled church in Andhra Pradesh, India — building the Kingdom together. Join us on Sundays in person or online." />
+<link rel="icon" type="image/jpeg" href="logo.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────  TOKENS  ───────────────────────── */
+:root{
+  --red:#E63946;
+  --red-light:#FF6B74;
+  --red-dark:#C1121F;
+  --black:#0D0D0D;
+  --dark-gray:#333333;
+  --mid-gray:#777777;
+  --light-gray:#F5F5F5;
+  --white:#FFFFFF;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html[lang="te"] body,html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3,html[lang="te"] h4,html[lang="te"] h5{font-family:'Noto Sans Telugu','Inter',system-ui,sans-serif!important}
+html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3,html[lang="te"] h4{letter-spacing:0;line-height:1.2;font-weight:700}
+html[lang="te"] .hero h1{font-size:clamp(42px,6vw,88px)}
+html[lang="te"] .marquee-row{font-size:clamp(40px,6vw,80px)}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:400;
+  color:var(--dark-gray);
+  background:var(--white);
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:none;
+}
+@media (max-width:900px){ body{cursor:auto} .cursor,.cursor-ring{display:none} }
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:none;border:none;background:none}
+::selection{background:var(--red);color:var(--white)}
+
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){ .container{padding:0 20px} }
+
+h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;line-height:.92;letter-spacing:.02em;color:var(--black);font-weight:400}
+.serif-quote{font-family:'Playfair Display',serif;font-style:italic}
+
+/* ─────────────────────────  CURSOR  ───────────────────────── */
+.cursor{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--red);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid var(--red);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),border-color .2s,opacity .2s}
+body.hovering .cursor{width:0;height:0}
+body.hovering .cursor-ring{width:52px;height:52px;background:rgba(230,57,70,.08)}
+
+/* ─────────────────────────  NAV  ───────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .4s var(--ease);background:transparent}
+.nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 2px 20px rgba(0,0,0,.06);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.04em;color:var(--black)}
+.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.logo span{color:var(--red)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--dark-gray);position:relative;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--red);transition:width .3s var(--ease)}
+.nav-links a:hover{color:var(--black)}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;font-size:14px;font-weight:600;letter-spacing:.03em;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .2s}
+.btn-primary{background:var(--red);color:var(--white)}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(230,57,70,.4)}
+.btn-outline{background:transparent;color:var(--black);border:1.5px solid var(--black)}
+.btn-outline:hover{background:var(--black);color:var(--white);transform:translateY(-2px)}
+.nav-toggle{display:none;background:none;border:none;color:var(--black);font-size:24px;cursor:pointer}
+
+.lang-switcher{position:relative;cursor:none}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--black);border:1.5px solid #e5e5e5;border-radius:999px;background:var(--white);text-transform:uppercase;transition:all .2s;cursor:none}
+.lang-btn:hover{border-color:var(--red);color:var(--red)}
+.lang-btn::after{content:'▾';font-size:10px;margin-left:2px}
+.lang-menu{position:absolute;top:calc(100% + 10px);right:0;background:var(--white);border:1px solid #e5e5e5;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.1);overflow:hidden;min-width:160px;opacity:0;transform:translateY(-8px);pointer-events:none;transition:all .25s var(--ease);z-index:101}
+.lang-menu.open{opacity:1;transform:translateY(0);pointer-events:auto}
+.lang-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:12px 16px;font-size:13px;font-weight:500;color:var(--dark-gray);text-align:left;transition:background .2s,color .2s;cursor:none}
+.lang-menu button:hover,.lang-menu button.active{background:var(--light-gray);color:var(--red)}
+.lang-menu button .flag{font-size:16px;width:20px;text-align:center}
+.lang-menu button.active{font-weight:700}
+@media (max-width:900px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:24px 32px;gap:18px;border-top:1px solid var(--light-gray)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block;cursor:none}
+  .nav-cta{display:none}
+  .lang-btn{padding:6px 10px;font-size:11px}
+  .nav-inner{gap:10px}
+}
+@media (max-width:640px){
+  .hero{padding:100px 0 40px}
+  .hero-inner{gap:32px}
+  .hero-visual{max-width:100%;aspect-ratio:16/10}
+  .sermon-featured{min-height:380px;padding:28px}
+  .sermon-featured h3{font-size:30px}
+  .about{padding:80px 0}
+  .ministries,.sermons,.connect,.pastor-section{padding:80px 0}
+  .marquee{padding:50px 0}
+  .connect-panel{padding:32px}
+  .stat-badge{bottom:-12px;right:-12px;padding:16px 20px}
+  .stat-badge .num{font-size:32px}
+}
+
+/* ─────────────────────────  HERO  ───────────────────────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--white);overflow:hidden;padding:120px 0 60px}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(230,57,70,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(230,57,70,.05) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;animation:gridShift 30s linear infinite}
+@keyframes gridShift{from{background-position:0 0}to{background-position:64px 64px}}
+.hero-blur-1{position:absolute;top:-100px;right:-150px;width:450px;height:450px;background:radial-gradient(circle,rgba(230,57,70,.15),transparent 70%);filter:blur(40px);pointer-events:none;animation:float 14s ease-in-out infinite}
+.hero-blur-2{position:absolute;bottom:-120px;left:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(230,57,70,.12),transparent 70%);filter:blur(40px);pointer-events:none;animation:float 18s ease-in-out infinite reverse}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media (max-width:900px){ .hero-inner{grid-template-columns:1fr;gap:40px} }
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.15em;color:var(--red);text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fadeUp .8s var(--ease) .2s forwards}
+.hero-tag::before{content:'';width:24px;height:1.5px;background:var(--red)}
+.hero h1{font-size:clamp(64px,10vw,148px);letter-spacing:-.01em;color:var(--black)}
+.hero h1 .line{display:block;opacity:0;animation:fadeUp .9s var(--ease) forwards}
+.hero h1 .line:nth-child(1){animation-delay:.35s}
+.hero h1 .line:nth-child(2){animation-delay:.5s}
+.hero h1 .line:nth-child(3){animation-delay:.65s;color:var(--red)}
+.hero h1 .ghost{-webkit-text-stroke:2px var(--black);-webkit-text-fill-color:transparent;color:transparent}
+.hero-sub{font-size:17px;color:var(--mid-gray);max-width:500px;margin-top:28px;opacity:0;animation:fadeUp .8s var(--ease) .85s forwards}
+.hero-ctas{display:flex;gap:14px;margin-top:38px;opacity:0;animation:fadeUp .8s var(--ease) 1s forwards;flex-wrap:wrap}
+.hero-visual{position:relative;opacity:0;animation:fadeUp 1s var(--ease) .5s forwards;aspect-ratio:4/5;max-width:480px;justify-self:end;width:100%}
+@media (max-width:900px){ .hero-visual{justify-self:start;max-width:360px} }
+.hero-visual-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--red),var(--red-dark));border-radius:20px;transform:rotate(-4deg);box-shadow:0 40px 80px rgba(230,57,70,.3)}
+.hero-visual-card{position:absolute;inset:0;border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.2);display:flex;align-items:flex-end;justify-content:flex-start;padding:32px;overflow:hidden;background:#000}
+.hero-visual-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.85) 0%,rgba(13,13,13,.2) 45%,transparent 70%);pointer-events:none;z-index:1}
+.hero-visual-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-logo{width:72px;height:72px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,.4),0 0 0 3px var(--white),0 0 0 5px var(--red);position:relative;z-index:2;animation:float 7s ease-in-out infinite;flex-shrink:0}
+.hero-visual-text{position:relative;z-index:2;color:var(--white);display:flex;align-items:center;gap:16px}
+.hero-visual-text .stack{display:flex;flex-direction:column}
+.hero-visual-text .big{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--white);line-height:1;letter-spacing:.02em}
+.hero-visual-text .small{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.8);text-transform:uppercase;margin-top:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-20px) translateX(10px)}}
+
+.scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp .8s var(--ease) 1.4s forwards}
+.scroll-indicator span{font-size:10px;letter-spacing:.3em;color:var(--mid-gray);text-transform:uppercase}
+.scroll-indicator .line{width:1.5px;height:40px;background:var(--red);position:relative;overflow:hidden}
+.scroll-indicator .line::after{content:'';position:absolute;top:-100%;left:0;right:0;height:100%;background:var(--black);animation:scrollLine 2s infinite}
+@keyframes scrollLine{0%{top:-100%}50%,100%{top:100%}}
+
+/* ─────────────────────────  TICKER  ───────────────────────── */
+.ticker{background:var(--red);color:var(--white);padding:16px 0;overflow:hidden;border-top:1px solid var(--red-dark);border-bottom:1px solid var(--red-dark)}
+.ticker-track{display:flex;gap:60px;white-space:nowrap;animation:tickerScroll 45s linear infinite;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.ticker-track span{display:inline-flex;align-items:center;gap:14px}
+.ticker-track span::before{content:'✦';color:var(--white);font-size:12px}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─────────────────────────  ABOUT  ───────────────────────── */
+.about{padding:120px 0;background:var(--white);position:relative}
+.about-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+@media (max-width:900px){ .about-inner{grid-template-columns:1fr;gap:50px} }
+.about-visual{position:relative;aspect-ratio:1/1.1;max-width:460px}
+.about-card{position:absolute;inset:0;background-size:cover;background-position:center;border-radius:16px;animation:float 8s ease-in-out infinite;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.15)}
+.about-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.5),transparent 60%);pointer-events:none}
+.about-card-tag{position:absolute;top:24px;left:24px;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--red);text-transform:uppercase}
+.about-card-tag::before{content:'';width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
+.stat-badge{position:absolute;bottom:-20px;right:-20px;background:var(--red);color:var(--white);padding:22px 28px;border-radius:14px;box-shadow:0 20px 40px rgba(230,57,70,.35);animation:float 6s ease-in-out infinite reverse;overflow:hidden}
+.stat-badge::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,255,255,.25),transparent);transform:rotate(45deg) translateX(-120%);animation:shimmer 5s infinite}
+@keyframes shimmer{0%{transform:rotate(45deg) translateX(-120%)}60%,100%{transform:rotate(45deg) translateX(120%)}}
+.stat-badge .num{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;position:relative}
+.stat-badge .label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin-top:2px;position:relative}
+
+.section-kicker{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-bottom:20px}
+.section-kicker::before{content:'';width:24px;height:1.5px;background:var(--red)}
+.about-text h2{font-size:clamp(44px,5vw,72px);margin-bottom:24px;color:var(--black)}
+.about-text h2 em{color:var(--red);font-style:normal}
+.about-text > p{font-size:16px;color:var(--mid-gray);margin-bottom:18px;max-width:540px}
+.feature-list{margin-top:32px;list-style:none}
+.feature-list li{position:relative;padding:14px 0 14px 28px;border-bottom:1px solid var(--light-gray);font-size:15px;color:var(--dark-gray);font-weight:500}
+.feature-list li::before{content:'';position:absolute;left:0;top:22px;width:10px;height:10px;background:var(--red);border-radius:50%}
+
+/* ─────────────────────────  PASTOR  ───────────────────────── */
+.pastor-section{padding:120px 0;background:var(--black);color:var(--white);position:relative;overflow:hidden}
+.pastor-section::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,var(--red),transparent 70%);opacity:.18;pointer-events:none}
+.pastor-section::after{content:'"';position:absolute;left:-30px;top:-30px;font-family:'Playfair Display',serif;font-size:400px;color:var(--red);opacity:.06;line-height:1;pointer-events:none}
+.pastor-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center;position:relative}
+@media (max-width:900px){ .pastor-inner{grid-template-columns:1fr;gap:50px} }
+.pastor-photo{position:relative;aspect-ratio:4/5;max-width:440px;border-radius:20px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.pastor-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);clip-path:inset(100% 0 0 0);animation:photoReveal 1.2s var(--ease) .2s forwards}
+.pastor-photo.in img{clip-path:inset(0 0 0 0)}
+.pastor-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(230,57,70,.3));pointer-events:none}
+.pastor-photo-badge{position:absolute;bottom:24px;left:24px;right:24px;z-index:2;background:rgba(230,57,70,.95);backdrop-filter:blur(8px);padding:18px 22px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.pastor-photo-badge .pb-name{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:.04em;line-height:1}
+.pastor-photo-badge .pb-role{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:4px}
+.pastor-photo-badge .pb-icon{width:40px;height:40px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:20px;flex-shrink:0}
+.pastor-text .section-kicker{color:var(--red)}
+.pastor-text .section-kicker::before{background:var(--red)}
+.pastor-text h2{color:var(--white);font-size:clamp(42px,5vw,68px);margin-bottom:26px;line-height:1}
+.pastor-text h2 em{color:var(--red);font-style:normal}
+.pastor-text p{color:rgba(255,255,255,.75);font-size:16px;margin-bottom:16px;max-width:580px;line-height:1.8}
+.pastor-quote{border-left:3px solid var(--red);padding:10px 0 10px 24px;margin:32px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:var(--white);line-height:1.5;max-width:560px}
+.pastor-quote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--red);text-transform:uppercase;margin-top:14px}
+@keyframes photoReveal{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* ─────────────────────────  MINISTRIES  ───────────────────────── */
+.ministries{padding:120px 0;background:var(--white);position:relative;border-top:1px solid var(--light-gray)}
+.ministries-header{text-align:center;max-width:720px;margin:0 auto 72px}
+.ministries-header h2{font-size:clamp(44px,5vw,72px);margin-bottom:16px}
+.ministries-header h2 em{color:var(--red);font-style:normal}
+.ministries-header p{color:var(--mid-gray);font-size:16px}
+.ministries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:900px){ .ministries-grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .ministries-grid{grid-template-columns:1fr} }
+.m-card{background:var(--white);border:1px solid #e5e5e5;border-radius:16px;padding:36px 32px;transition:all .4s var(--ease);position:relative;overflow:hidden;cursor:none}
+.m-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.m-card:hover{border-color:var(--red);transform:translateY(-6px);box-shadow:0 24px 48px rgba(230,57,70,.12)}
+.m-card:hover::after{transform:scaleX(1)}
+.m-num{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--red);letter-spacing:.15em;margin-bottom:28px;display:flex;align-items:center;gap:10px}
+.m-num::after{content:'';flex:1;height:1px;background:#e5e5e5}
+.m-icon{font-size:36px;margin-bottom:20px;display:inline-block;transition:transform .4s var(--ease)}
+.m-card:hover .m-icon{transform:rotate(-8deg) scale(1.1)}
+.m-card h3{font-size:26px;color:var(--black);margin-bottom:12px;letter-spacing:0}
+.m-card p{font-size:14px;color:var(--mid-gray);line-height:1.7;margin-bottom:24px}
+.m-link{display:inline-flex;align-items:center;gap:8px;color:var(--red);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:gap .3s var(--ease)}
+.m-card:hover .m-link{gap:14px}
+.m-link::after{content:'→';transition:transform .3s var(--ease)}
+
+/* ─────────────────────────  MARQUEE  ───────────────────────── */
+.marquee{background:var(--light-gray);padding:80px 0;overflow:hidden;position:relative}
+.marquee-row{display:flex;gap:50px;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,9vw,140px);line-height:1;letter-spacing:.02em}
+.marquee-row:nth-child(1){animation:marqueeL 35s linear infinite}
+.marquee-row:nth-child(2){animation:marqueeR 40s linear infinite;margin-top:20px}
+.marquee-row span{display:inline-flex;align-items:center;gap:50px}
+.marquee-row span::after{content:'✦';color:var(--red);font-size:40px}
+.marquee-row.outline span{-webkit-text-stroke:2px var(--red);-webkit-text-fill-color:transparent;color:transparent}
+.marquee-row.filled span{color:var(--red)}
+@keyframes marqueeL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marqueeR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* ─────────────────────────  SERMONS  ───────────────────────── */
+.sermons{padding:120px 0;background:var(--white)}
+.sermons-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px;flex-wrap:wrap}
+.sermons-header h2{font-size:clamp(44px,5vw,72px)}
+.sermons-header h2 em{color:var(--red);font-style:normal}
+.sermons-header p{color:var(--mid-gray);font-size:15px;max-width:400px}
+.sermons-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+@media (max-width:900px){ .sermons-grid{grid-template-columns:1fr} }
+.sermon-featured{background:var(--black) center/cover no-repeat;color:var(--white);border-radius:20px;overflow:hidden;position:relative;min-height:520px;display:flex;flex-direction:column;justify-content:space-between;padding:44px;transition:transform .4s var(--ease);cursor:none}
+.sermon-featured::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,.45) 0%,rgba(13,13,13,.75) 60%,rgba(13,13,13,.92) 100%),linear-gradient(135deg,rgba(230,57,70,.35),transparent 60%);pointer-events:none}
+.sermon-featured::after{content:'✝';position:absolute;right:-60px;bottom:-80px;font-size:400px;color:rgba(255,255,255,.04);font-family:'Bebas Neue',sans-serif;line-height:1;z-index:1}
+.sermon-featured:hover{transform:scale(1.01)}
+.sermon-featured > *{position:relative;z-index:1}
+.sermon-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:8px 16px;border-radius:999px;width:fit-content}
+.sermon-badge::before{content:'';width:8px;height:8px;background:var(--white);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.sermon-featured h3{font-size:clamp(36px,4vw,56px);color:var(--white);margin:20px 0 16px;max-width:560px}
+.sermon-featured .meta{display:flex;gap:24px;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:14px;letter-spacing:.05em}
+.sermon-featured .meta span{display:flex;align-items:center;gap:6px}
+.sermon-featured p{font-size:15px;color:rgba(255,255,255,.8);max-width:520px;margin-bottom:28px}
+.play-btn{display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+.play-btn .circle{width:56px;height:56px;border:2px solid var(--red);background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.play-btn .circle::before{content:'';border-left:14px solid var(--white);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.sermon-featured:hover .play-btn .circle{transform:scale(1.1);box-shadow:0 0 0 8px rgba(230,57,70,.25)}
+
+.sermons-side{display:flex;flex-direction:column;gap:16px}
+.sermon-mini{background:var(--white);border:1px solid #e5e5e5;border-radius:16px;padding:24px;display:flex;gap:20px;align-items:center;transition:all .3s var(--ease);cursor:none}
+.sermon-mini:hover{border-color:var(--red);transform:translateX(6px)}
+.sermon-mini .play-mini{width:48px;height:48px;background:var(--red);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
+.sermon-mini:hover .play-mini{transform:scale(1.1)}
+.sermon-mini .play-mini::before{content:'';border-left:12px solid var(--white);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.sermon-mini h4{font-size:18px;color:var(--black);margin-bottom:4px;letter-spacing:0}
+.sermon-mini .series{font-size:11px;letter-spacing:.15em;color:var(--red);text-transform:uppercase;font-weight:600}
+
+.yt-link{text-align:center;margin-top:48px}
+.yt-link a{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:14px;color:var(--black);border-bottom:2px solid var(--red);padding-bottom:4px;letter-spacing:.05em}
+.yt-link a:hover{color:var(--red)}
+
+/* ─────────────────────────  CONNECT  ───────────────────────── */
+.connect{padding:120px 0;background:var(--white);border-top:1px solid var(--light-gray)}
+.connect-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:stretch}
+@media (max-width:900px){ .connect-inner{grid-template-columns:1fr;gap:40px} }
+.connect-text h2{font-size:clamp(44px,5vw,72px);margin-bottom:20px}
+.connect-text h2 em{color:var(--red);font-style:normal}
+.connect-text > p{color:var(--mid-gray);margin-bottom:32px;max-width:440px}
+.form{display:flex;flex-direction:column;gap:16px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){ .form-row{grid-template-columns:1fr} }
+.form input,.form textarea{width:100%;padding:16px 18px;border:1.5px solid #e5e5e5;border-radius:10px;font-family:inherit;font-size:15px;color:var(--black);background:var(--white);transition:border-color .2s,box-shadow .2s;cursor:none}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(230,57,70,.1)}
+.form textarea{resize:vertical;min-height:140px;font-family:inherit}
+.form button{margin-top:10px;align-self:flex-start;cursor:none}
+.form-msg{font-size:13px;color:var(--red);font-weight:500;min-height:18px}
+
+.connect-panel{background:var(--light-gray);border-radius:20px;padding:48px;display:flex;flex-direction:column;gap:32px;position:relative;overflow:hidden}
+.connect-panel::before{content:'✝';position:absolute;right:-40px;bottom:-80px;font-size:320px;color:var(--red);opacity:.05;font-family:'Bebas Neue',sans-serif;line-height:1;pointer-events:none}
+.panel-block > h4{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--black);margin-bottom:14px;letter-spacing:.02em}
+.schedule-item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed #ccc;font-size:14px;color:var(--dark-gray)}
+.schedule-item:last-child{border:none}
+.schedule-item .day{font-weight:600;color:var(--black)}
+.schedule-item .time{color:var(--red);font-weight:600;letter-spacing:.04em}
+.address{font-size:15px;line-height:1.7;color:var(--dark-gray)}
+.socials{display:flex;gap:14px;margin-top:4px}
+.socials a{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--white);border-radius:999px;font-size:13px;font-weight:600;color:var(--black);border:1.5px solid transparent;transition:all .3s var(--ease)}
+.socials a:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
+.socials svg{width:18px;height:18px}
+
+/* ─────────────────────────  FOOTER  ───────────────────────── */
+.footer{background:var(--black);color:var(--white);padding:80px 0 30px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+@media (max-width:900px){ .footer-inner{grid-template-columns:1fr 1fr;gap:40px} }
+@media (max-width:640px){ .footer-inner{grid-template-columns:1fr} }
+.footer .logo{color:var(--white);font-size:36px;gap:12px}
+.footer .logo img{width:48px;height:48px}
+.footer .logo span{color:var(--red)}
+.footer-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,.6);margin-top:14px;max-width:320px;line-height:1.6}
+.footer h5{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.15em;color:var(--red);margin-bottom:20px}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer ul a{color:rgba(255,255,255,.6);font-size:14px;transition:color .2s}
+.footer ul a:hover{color:var(--red)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,.5)}
+.footer-socials{display:flex;gap:12px}
+.footer-socials a{width:40px;height:40px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.footer-socials a:hover{background:var(--red);border-color:var(--red);transform:translateY(-3px)}
+.footer-socials svg{width:16px;height:16px;fill:var(--white)}
+
+/* ─────────────────────────  REVEAL  ───────────────────────── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- ─────────  NAV  ───────── -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo"><img src="logo.jpg" alt="JCNCM" />JCNCM</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-i18n="nav_home">Home</a></li>
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#sermons" data-i18n="nav_sermons">Sermons</a></li>
+      <li><a href="#ministries" data-i18n="nav_ministries">Ministries</a></li>
+      <li><a href="#connect" data-i18n="nav_connect">Connect</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="langBtn"><span id="langCurrent">EN</span></button>
+      <div class="lang-menu" id="langMenu">
+        <button data-lang="en"><span class="flag">🇺🇸</span>English</button>
+        <button data-lang="te"><span class="flag">🇮🇳</span>తెలుగు</button>
+        <button data-lang="es"><span class="flag">🇪🇸</span>Español</button>
+        <button data-lang="fr"><span class="flag">🇫🇷</span>Français</button>
+      </div>
+    </div>
+    <a href="#connect" class="btn btn-primary nav-cta" data-i18n="nav_cta">Join Us →</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ─────────  HERO  ───────── -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blur-1"></div>
+  <div class="hero-blur-2"></div>
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-tag" data-i18n="hero_tag">Jesus Christ of New Creation Ministries</div>
+      <h1>
+        <span class="line ghost" data-i18n="hero_h1">BUILDING</span>
+        <span class="line" data-i18n="hero_h2">THE KINGDOM</span>
+        <span class="line" data-i18n="hero_h3">TOGETHER</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">A young, Spirit-filled church rooted in Andhra Pradesh and reaching the nations. Real people, real faith, real Jesus — every Sunday, in person and online.</p>
+      <div class="hero-ctas">
+        <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero_btn_watch">▶ Watch Live</a>
+        <a href="#about" class="btn btn-outline" data-i18n="hero_btn_story">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-bg"></div>
+      <div class="hero-visual-card">
+        <video class="hero-visual-video" autoplay muted loop playsinline poster="photos/jcncm3.jpg">
+          <source src="video/pastor-hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-visual-text">
+          <img src="logo.jpg" alt="JCNCM" class="hero-logo" />
+          <div class="stack">
+            <div class="big">JCNCM</div>
+            <div class="small" data-i18n="hero_location">Andhra Pradesh · India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span data-i18n="scroll">Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ─────────  TICKER  ───────── -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ─────────  ABOUT  ───────── -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-visual reveal">
+      <div class="about-card" style="background-image:url('photos/jcncm4.jpg')">
+        <div class="about-card-tag" data-i18n="about_tag">● Live Worship</div>
+      </div>
+      <div class="stat-badge">
+        <div class="num">500+</div>
+        <div class="label" data-i18n="about_badge">Believers</div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="section-kicker" data-i18n="about_kicker">Our Story</span>
+      <h2 data-i18n-html="about_title">A church <em>alive</em><br>with purpose.</h2>
+      <p data-i18n="about_p1">JCNCM is more than a Sunday gathering — it's a family on mission. Rooted in the Word, led by the Spirit, and planted in the soil of Andhra Pradesh, we exist to bring heaven to earth in every life we touch.</p>
+      <p data-i18n="about_p2">From Telugu villages to the global church, our story is one of revival, discipleship, and relentless worship.</p>
+      <ul class="feature-list">
+        <li data-i18n="about_feat1">Bible-based teaching that transforms everyday life</li>
+        <li data-i18n="about_feat2">Spirit-led worship in English and Telugu</li>
+        <li data-i18n="about_feat3">Community groups, youth meetings, prayer nights</li>
+        <li data-i18n="about_feat4">Active missions across villages and cities</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────  PASTOR  ───────── -->
+<section class="pastor-section" id="pastor">
+  <div class="container pastor-inner">
+    <div class="pastor-photo reveal">
+      <img src="photos/jcncm2.jpg" alt="Pastor JCNCM" />
+      <div class="pastor-photo-badge">
+        <div>
+          <div class="pb-name" data-i18n="pastor_name">Pastor Kiran</div>
+          <div class="pb-role" data-i18n="pastor_role">Founder · Lead Pastor</div>
+        </div>
+        <div class="pb-icon">✝</div>
+      </div>
+    </div>
+    <div class="pastor-text reveal">
+      <span class="section-kicker" data-i18n="pastor_kicker">Our Shepherd</span>
+      <h2 data-i18n-html="pastor_title">Called to the <em>forgotten</em>.</h2>
+      <p data-i18n="pastor_p1">Long before JCNCM existed, there was a burden — for the villages the cities had forgotten, for the pastors no one was paying, for the children growing up without a Bible in their hand.</p>
+      <p data-i18n="pastor_p2">That burden belonged to one man. And it wouldn't let him go.</p>
+      <p data-i18n="pastor_p3">Raised in rural Andhra Pradesh, our pastor saw the gap between the Gospel preached on glossy stages and the quiet faith of widows sweeping courtyards at dawn. He felt the call not to build a bigger platform, but to walk where the crowds never go.</p>
+      <p data-i18n="pastor_p4">Today, JCNCM is the answer to that call — a ministry that doesn't measure itself in seats filled, but in villages reached, lepers loved, orphans housed, and pastors supported so they can keep standing.</p>
+      <blockquote class="pastor-quote">
+        <span data-i18n="pastor_quote">"If the forgotten ones are not remembered by the Church, we have forgotten the Gospel."</span>
+        <cite data-i18n="pastor_cite">— A calling, not a career.</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────  MINISTRIES  ───────── -->
+<section class="ministries" id="ministries">
+  <div class="container">
+    <div class="ministries-header reveal">
+      <span class="section-kicker" style="justify-content:center" data-i18n="min_kicker">What We Do</span>
+      <h2 data-i18n-html="min_title">Where <em>faith</em> meets life.</h2>
+      <p data-i18n="min_sub">Six ministries. One calling. Whether you're new to Jesus or walking with Him for years, there's a place for you here.</p>
+    </div>
+    <div class="ministries-grid">
+      <div class="m-card reveal">
+        <div class="m-num"><span data-i18n="m1_num">01 / Little Ones</span></div>
+        <div class="m-icon">📖</div>
+        <h3 data-i18n="m1_title">Sunday School</h3>
+        <p data-i18n="m1_desc">Bible stories, songs, and prayer for village children — teaching the next generation that they are seen, loved, and called by Jesus.</p>
+        <a href="#connect" class="m-link" data-i18n="m1_cta">Sponsor a Child</a>
+      </div>
+      <div class="m-card reveal">
+        <div class="m-num"><span data-i18n="m2_num">02 / The Streets</span></div>
+        <div class="m-icon">📣</div>
+        <h3 data-i18n="m2_title">Street Gospel</h3>
+        <p data-i18n="m2_desc">Meeting people where they are — on footpaths, at bus stands, in slums. Simple conversations, honest prayer, and the hope of Christ shared freely.</p>
+        <a href="#connect" class="m-link" data-i18n="m2_cta">Join an Outreach</a>
+      </div>
+      <div class="m-card reveal">
+        <div class="m-num"><span data-i18n="m3_num">03 / The Forgotten</span></div>
+        <div class="m-icon">🤝</div>
+        <h3 data-i18n="m3_title">Lepers &amp; Destitute</h3>
+        <p data-i18n="m3_desc">Visiting leprosy colonies and the homeless with food, medicine, and human dignity. No one stays forgotten when Christ is their advocate.</p>
+        <a href="#connect" class="m-link" data-i18n="m3_cta">Support This Work</a>
+      </div>
+      <div class="m-card reveal">
+        <div class="m-num"><span data-i18n="m4_num">04 / Honour</span></div>
+        <div class="m-icon">🌿</div>
+        <h3 data-i18n="m4_title">Widows &amp; Elderly</h3>
+        <p data-i18n="m4_desc">Standing with widows and seniors left behind — monthly rations, home visits, prayer, and the comfort that they are family to us.</p>
+        <a href="#connect" class="m-link" data-i18n="m4_cta">Partner With Us</a>
+      </div>
+      <div class="m-card reveal">
+        <div class="m-num"><span data-i18n="m5_num">05 / Shelter</span></div>
+        <div class="m-icon">🏠</div>
+        <h3 data-i18n="m5_title">Children's Home</h3>
+        <p data-i18n="m5_desc">A safe roof, three meals, school fees, and a family for orphaned and abandoned children — raised in the knowledge that they belong.</p>
+        <a href="#connect" class="m-link" data-i18n="m5_cta">Become a Parent</a>
+      </div>
+      <div class="m-card reveal">
+        <div class="m-num"><span data-i18n="m6_num">06 / Shepherds</span></div>
+        <div class="m-icon">✝️</div>
+        <h3 data-i18n="m6_title">Pastors' Support</h3>
+        <p data-i18n="m6_desc">Rural and village pastors serve with almost nothing. We provide monthly stipends, Bibles, training, and brotherhood so they can keep preaching.</p>
+        <a href="#connect" class="m-link" data-i18n="m6_cta">Stand With Them</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────  MARQUEE  ───────── -->
+<section class="marquee">
+  <div class="marquee-row outline" id="marquee1"></div>
+  <div class="marquee-row filled" id="marquee2"></div>
+</section>
+
+<!-- ─────────  SERMONS  ───────── -->
+<section class="sermons" id="sermons">
+  <div class="container">
+    <div class="sermons-header reveal">
+      <div>
+        <span class="section-kicker" data-i18n="ser_kicker">Messages</span>
+        <h2 data-i18n-html="ser_title">Watch &amp; <em>grow</em>.</h2>
+      </div>
+      <p data-i18n="ser_sub">Fresh Word every week. Bible-based teaching for real life, from the pulpit to your phone.</p>
+    </div>
+    <div class="sermons-grid">
+      <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" class="sermon-featured reveal" style="background-image:url('photos/jcncm1.jpg')">
+        <div class="sermon-badge" data-i18n="ser_badge">● Latest Message</div>
+        <h3 data-i18n="ser_feat_title">Awake, O Sleeper — Rise &amp; Shine</h3>
+        <div class="meta">
+          <span data-i18n="ser_feat_m1">👤 Pastor Message</span>
+          <span data-i18n="ser_feat_m2">📅 This Sunday</span>
+          <span data-i18n="ser_feat_m3">⏱ 52 min</span>
+        </div>
+        <p data-i18n="ser_feat_desc">A call to the sleeping church: the hour is late, the harvest is ready. It's time to wake up, take up our cross, and run toward the finish line with the Lord.</p>
+        <span class="play-btn"><span class="circle"></span> <span data-i18n="ser_feat_btn">Watch Message</span></span>
+      </a>
+      <div class="sermons-side">
+        <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" class="sermon-mini reveal">
+          <span class="play-mini"></span>
+          <div>
+            <h4 data-i18n="ser_mini1_title">The God Who Heals</h4>
+            <div class="series" data-i18n="ser_mini1_series">Series · His Name</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" class="sermon-mini reveal">
+          <span class="play-mini"></span>
+          <div>
+            <h4 data-i18n="ser_mini2_title">Faith That Moves Mountains</h4>
+            <div class="series" data-i18n="ser_mini2_series">Series · Kingdom Living</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" class="sermon-mini reveal">
+          <span class="play-mini"></span>
+          <div>
+            <h4 data-i18n="ser_mini3_title">When Prayer Shakes the Prison</h4>
+            <div class="series" data-i18n="ser_mini3_series">Series · Acts of Power</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="yt-link">
+      <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" data-i18n="ser_yt">Watch all messages on YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────  CONNECT  ───────── -->
+<section class="connect" id="connect">
+  <div class="container connect-inner">
+    <div class="connect-text reveal">
+      <span class="section-kicker" data-i18n="con_kicker">Connect</span>
+      <h2 data-i18n-html="con_title">Let's <em>talk</em>.</h2>
+      <p data-i18n="con_sub">New to JCNCM? Got a question? Need prayer? Drop us a line — we read every message and reply within a day.</p>
+      <form class="form" id="contactForm" onsubmit="return submitForm(event)">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your name" required data-i18n-ph="con_ph_name" />
+          <input type="email" name="email" placeholder="Email address" required data-i18n-ph="con_ph_email" />
+        </div>
+        <input type="tel" name="phone" placeholder="Phone (optional)" data-i18n-ph="con_ph_phone" />
+        <textarea name="message" placeholder="Your message or prayer request..." required data-i18n-ph="con_ph_msg"></textarea>
+        <div class="form-msg" id="formMsg"></div>
+        <button type="submit" class="btn btn-primary" data-i18n="con_btn_send">Send Message →</button>
+      </form>
+    </div>
+    <div class="connect-panel reveal">
+      <div class="panel-block">
+        <h4 data-i18n="con_sched">Weekly Schedule</h4>
+        <div class="schedule-item"><span class="day" data-i18n="con_d1">Sunday Service</span><span class="time">10:00 AM</span></div>
+        <div class="schedule-item"><span class="day" data-i18n="con_d2">Wednesday Prayer</span><span class="time">7:00 PM</span></div>
+        <div class="schedule-item"><span class="day" data-i18n="con_d3">Friday Youth</span><span class="time">6:30 PM</span></div>
+        <div class="schedule-item"><span class="day" data-i18n="con_d4">Saturday Outreach</span><span class="time">4:00 PM</span></div>
+      </div>
+      <div class="panel-block">
+        <h4 data-i18n="con_find">Find Us</h4>
+        <p class="address" data-i18n-html="con_addr">Jesus Christ of<br>New Creation Ministries<br>Andhra Pradesh, India</p>
+      </div>
+      <div class="panel-block">
+        <h4 data-i18n="con_follow">Follow Along</h4>
+        <div class="socials">
+          <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2s-.2-1.6-1-2.3c-.9-1-1.9-1-2.4-1.1C16.7 2.5 12 2.5 12 2.5s-4.7 0-8.1.3c-.5.1-1.5.1-2.4 1.1-.8.7-1 2.3-1 2.3S0 8.1 0 10v1.8c0 1.9.2 3.8.2 3.8s.2 1.6 1 2.3c.9 1 2.2 1 2.7 1.1 2 .2 8.1.3 8.1.3s4.7 0 8.1-.3c.5-.1 1.5-.1 2.4-1.1.8-.7 1-2.3 1-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.5 14.6V7.4l6.2 3.6-6.2 3.6z"/></svg>
+            YouTube
+          </a>
+          <a href="https://www.facebook.com/jcncministries" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12c0-6.6-5.4-12-12-12S0 5.4 0 12c0 6 4.4 11 10.1 11.9V15.5H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18 24 12z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────  FOOTER  ───────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="logo"><img src="logo.jpg" alt="JCNCM" />JCNCM</div>
+        <p class="footer-tagline" data-i18n="foot_tag">"Building the Kingdom, together — one soul at a time."</p>
+      </div>
+      <div>
+        <h5 data-i18n="foot_h1">Explore</h5>
+        <ul>
+          <li><a href="#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#ministries" data-i18n="nav_ministries">Ministries</a></li>
+          <li><a href="#sermons" data-i18n="nav_sermons">Sermons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="foot_h2">Connect</h5>
+        <ul>
+          <li><a href="#connect" data-i18n="foot_visit">Visit Us</a></li>
+          <li><a href="#connect" data-i18n="foot_prayer">Prayer Requests</a></li>
+          <li><a href="#connect" data-i18n="foot_contact">Contact</a></li>
+          <li><a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" data-i18n="foot_watch">Watch Live</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="foot_h3">Location</h5>
+        <ul>
+          <li data-i18n="foot_loc1">Andhra Pradesh</li>
+          <li data-i18n="foot_loc2">India</li>
+          <li data-i18n="foot_loc3">Sunday · 10 AM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p><span data-i18n="foot_copy">© </span><span id="year"></span> <span data-i18n="foot_rights">Jesus Christ of New Creation Ministries. All rights reserved.</span></p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@jcncm.official" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2s-.2-1.6-1-2.3c-.9-1-1.9-1-2.4-1.1C16.7 2.5 12 2.5 12 2.5s-4.7 0-8.1.3c-.5.1-1.5.1-2.4 1.1-.8.7-1 2.3-1 2.3S0 8.1 0 10v1.8c0 1.9.2 3.8.2 3.8s.2 1.6 1 2.3c.9 1 2.2 1 2.7 1.1 2 .2 8.1.3 8.1.3s4.7 0 8.1-.3c.5-.1 1.5-.1 2.4-1.1.8-.7 1-2.3 1-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.5 14.6V7.4l6.2 3.6-6.2 3.6z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/jcncministries" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12c0-6.6-5.4-12-12-12S0 5.4 0 12c0 6 4.4 11 10.1 11.9V15.5H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18 24 12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ───── Translations ───── */
+const I18N = {
+  en: {
+    nav_home:'Home', nav_about:'About', nav_sermons:'Sermons', nav_ministries:'Ministries', nav_connect:'Connect', nav_cta:'Join Us →',
+    hero_tag:'Jesus Christ of New Creation Ministries',
+    hero_h1:'BUILDING', hero_h2:'THE KINGDOM', hero_h3:'TOGETHER',
+    hero_sub:"A young, Spirit-filled church rooted in Andhra Pradesh and reaching the nations. Real people, real faith, real Jesus — every Sunday, in person and online.",
+    hero_btn_watch:'▶ Watch Live', hero_btn_story:'Our Story', hero_location:'Andhra Pradesh · India',
+    scroll:'Scroll',
+    ticker:['Sunday Service · 10:00 AM','Wednesday Prayer · 7:00 PM','Friday Youth · 6:30 PM','Based in Andhra Pradesh, India','Watch Live on YouTube @jcncm.official','All Are Welcome'],
+    pastor_name:'Pastor Kiran', pastor_role:'Founder · Lead Pastor',
+    pastor_kicker:'Our Shepherd', pastor_title:'Called to the <em>forgotten</em>.',
+    pastor_p1:"Long before JCNCM existed, there was a burden — for the villages the cities had forgotten, for the pastors no one was paying, for the children growing up without a Bible in their hand.",
+    pastor_p2:"That burden belonged to one man. And it wouldn't let him go.",
+    pastor_p3:'Raised in rural Andhra Pradesh, our pastor saw the gap between the Gospel preached on glossy stages and the quiet faith of widows sweeping courtyards at dawn. He felt the call not to build a bigger platform, but to walk where the crowds never go.',
+    pastor_p4:"Today, JCNCM is the answer to that call — a ministry that doesn't measure itself in seats filled, but in villages reached, lepers loved, orphans housed, and pastors supported so they can keep standing.",
+    pastor_quote:'"If the forgotten ones are not remembered by the Church, we have forgotten the Gospel."',
+    pastor_cite:'— A calling, not a career.',
+    about_tag:'● Live Worship', about_badge:'Believers',
+    about_kicker:'Our Story',
+    about_title:'A church <em>alive</em><br>with purpose.',
+    about_p1:"JCNCM is more than a Sunday gathering — it's a family on mission. Rooted in the Word, led by the Spirit, and planted in the soil of Andhra Pradesh, we exist to bring heaven to earth in every life we touch.",
+    about_p2:'From Telugu villages to the global church, our story is one of revival, discipleship, and relentless worship.',
+    about_feat1:'Bible-based teaching that transforms everyday life',
+    about_feat2:'Spirit-led worship in English and Telugu',
+    about_feat3:'Community groups, youth meetings, prayer nights',
+    about_feat4:'Active missions across villages and cities',
+    min_kicker:'What We Do', min_title:'Where <em>faith</em> meets life.',
+    min_sub:"Six ministries. One calling. Whether you're new to Jesus or walking with Him for years, there's a place for you here.",
+    m1_num:'01 / Little Ones', m1_title:'Sunday School', m1_desc:'Bible stories, songs, and prayer for village children — teaching the next generation that they are seen, loved, and called by Jesus.', m1_cta:'Sponsor a Child',
+    m2_num:'02 / The Streets', m2_title:'Street Gospel', m2_desc:'Meeting people where they are — on footpaths, at bus stands, in slums. Simple conversations, honest prayer, and the hope of Christ shared freely.', m2_cta:'Join an Outreach',
+    m3_num:'03 / The Forgotten', m3_title:'Lepers & Destitute', m3_desc:'Visiting leprosy colonies and the homeless with food, medicine, and human dignity. No one stays forgotten when Christ is their advocate.', m3_cta:'Support This Work',
+    m4_num:'04 / Honour', m4_title:'Widows & Elderly', m4_desc:'Standing with widows and seniors left behind — monthly rations, home visits, prayer, and the comfort that they are family to us.', m4_cta:'Partner With Us',
+    m5_num:'05 / Shelter', m5_title:"Children's Home", m5_desc:'A safe roof, three meals, school fees, and a family for orphaned and abandoned children — raised in the knowledge that they belong.', m5_cta:'Become a Parent',
+    m6_num:'06 / Shepherds', m6_title:"Pastors' Support", m6_desc:'Rural and village pastors serve with almost nothing. We provide monthly stipends, Bibles, training, and brotherhood so they can keep preaching.', m6_cta:'Stand With Them',
+    ser_kicker:'Messages', ser_title:'Watch &amp; <em>grow</em>.',
+    ser_sub:'Fresh Word every week. Bible-based teaching for real life, from the pulpit to your phone.',
+    ser_badge:'● Latest Message', ser_feat_title:'Awake, O Sleeper — Rise & Shine',
+    ser_feat_m1:'👤 Pastor Message', ser_feat_m2:'📅 This Sunday', ser_feat_m3:'⏱ 52 min',
+    ser_feat_desc:"A call to the sleeping church: the hour is late, the harvest is ready. It's time to wake up, take up our cross, and run toward the finish line with the Lord.",
+    ser_feat_btn:'Watch Message',
+    ser_mini1_title:'The God Who Heals', ser_mini1_series:'Series · His Name',
+    ser_mini2_title:'Faith That Moves Mountains', ser_mini2_series:'Series · Kingdom Living',
+    ser_mini3_title:'When Prayer Shakes the Prison', ser_mini3_series:'Series · Acts of Power',
+    ser_yt:'Watch all messages on YouTube →',
+    con_kicker:'Connect', con_title:"Let's <em>talk</em>.",
+    con_sub:'New to JCNCM? Got a question? Need prayer? Drop us a line — we read every message and reply within a day.',
+    con_ph_name:'Your name', con_ph_email:'Email address', con_ph_phone:'Phone (optional)', con_ph_msg:'Your message or prayer request...',
+    con_btn_send:'Send Message →',
+    con_sched:'Weekly Schedule',
+    con_d1:'Sunday Service', con_d2:'Wednesday Prayer', con_d3:'Friday Youth', con_d4:'Saturday Outreach',
+    con_find:'Find Us', con_addr:'Jesus Christ of<br>New Creation Ministries<br>Andhra Pradesh, India',
+    con_follow:'Follow Along',
+    con_form_ok:"Thanks — we've received your message. We'll reply within a day.",
+    foot_tag:'"Building the Kingdom, together — one soul at a time."',
+    foot_h1:'Explore', foot_h2:'Connect', foot_h3:'Location',
+    foot_visit:'Visit Us', foot_prayer:'Prayer Requests', foot_contact:'Contact', foot_watch:'Watch Live',
+    foot_loc1:'Andhra Pradesh', foot_loc2:'India', foot_loc3:'Sunday · 10 AM',
+    foot_copy:'© ', foot_rights:'Jesus Christ of New Creation Ministries. All rights reserved.',
+    marquee1:['REVIVAL','FAITH','WORSHIP','THE WORD','PRAYER'],
+    marquee2:['JESUS','HOLY SPIRIT','THE GOSPEL','DISCIPLESHIP','NATIONS'],
+  },
+  te: {
+    nav_home:'హోమ్', nav_about:'మా గురించి', nav_sermons:'సందేశాలు', nav_ministries:'సేవలు', nav_connect:'సంప్రదించండి', nav_cta:'మాతో చేరండి →',
+    hero_tag:'జీసస్ క్రైస్ట్ ఆఫ్ న్యూ క్రియేషన్ మినిస్ట్రీస్',
+    hero_h1:'నిర్మిస్తున్నాం', hero_h2:'దేవుని రాజ్యం', hero_h3:'కలిసి',
+    hero_sub:'ఆంధ్రప్రదేశ్‌లో నాటుకున్న, దేశాలకు చేరే ఒక యువ, ఆత్మ నిండిన చర్చి. నిజమైన మనుషులు, నిజమైన విశ్వాసం, నిజమైన యేసు — ప్రతి ఆదివారం, ప్రత్యక్షంగా మరియు ఆన్‌లైన్‌లో.',
+    hero_btn_watch:'▶ ప్రత్యక్ష ప్రసారం', hero_btn_story:'మా కథ', hero_location:'ఆంధ్రప్రదేశ్ · భారతదేశం',
+    scroll:'స్క్రోల్',
+    ticker:['ఆదివారం ఆరాధన · ఉదయం 10:00','బుధవారం ప్రార్థన · సాయంత్రం 7:00','శుక్రవారం యువత · సాయంత్రం 6:30','ఆంధ్రప్రదేశ్, భారతదేశం','యూట్యూబ్‌లో ప్రత్యక్ష ప్రసారం @jcncm.official','అందరికీ స్వాగతం'],
+    pastor_name:'పాస్టర్ కిరణ్', pastor_role:'వ్యవస్థాపకుడు · ప్రధాన పాస్టర్',
+    pastor_kicker:'మా కాపరి', pastor_title:'<em>మరచిపోబడినవారికి</em> పిలువబడినవాడు.',
+    pastor_p1:'JCNCM ప్రారంభం కాకముందే ఒక భారం ఉంది — నగరాలు మరచిపోయిన గ్రామాల కోసం, ఎవరూ జీతం ఇవ్వని పాస్టర్ల కోసం, చేతిలో బైబిల్ లేకుండా పెరుగుతున్న పిల్లల కోసం.',
+    pastor_p2:'ఆ భారం ఒక మనిషిది. అది అతనిని వదిలిపెట్టలేదు.',
+    pastor_p3:'గ్రామీణ ఆంధ్రప్రదేశ్‌లో పెరిగిన మా పాస్టర్, మెరిసే వేదికలపై ప్రకటించే సువార్త, మరియు తెల్లవారుజామున ప్రాంగణాలు ఊడ్చే విధవల నిశ్శబ్ద విశ్వాసం — ఈ రెండింటి మధ్య అంతరాన్ని చూశారు. పెద్ద వేదికను నిర్మించడానికి కాదు, జనసమూహం వెళ్ళని చోటికి నడవడానికి పిలుపు అనిపించింది.',
+    pastor_p4:'నేడు, JCNCM ఆ పిలుపుకు సమాధానం — తనను కుర్చీల సంఖ్యతో కాక, చేరిన గ్రామాలు, ప్రేమించిన కుష్ఠు రోగులు, ఆశ్రయం పొందిన అనాథలు, మరియు ప్రకటన కొనసాగించడానికి సపోర్ట్ పొందిన పాస్టర్లతో కొలుచుకునే ఒక సేవ.',
+    pastor_quote:'"మరచిపోబడినవారిని చర్చి గుర్తుంచుకోకపోతే, మనం సువార్తను మరచిపోయాం."',
+    pastor_cite:'— పిలుపు, ఉద్యోగం కాదు.',
+    about_tag:'● ప్రత్యక్ష ఆరాధన', about_badge:'విశ్వాసులు',
+    about_kicker:'మా కథ',
+    about_title:'ఒక <em>జీవంతో</em><br>నిండిన చర్చి.',
+    about_p1:'JCNCM కేవలం ఆదివారపు సమావేశం కాదు — ఇది ఒక మిషన్‌లో ఉన్న కుటుంబం. దేవుని వాక్యంలో నాటుకుని, ఆత్మ చేత నడిపించబడి, ఆంధ్రప్రదేశ్ నేలలో నాటబడిన మనం, ప్రతి జీవితంలో దేవుని రాజ్యాన్ని తీసుకురావడానికి ఉన్నాం.',
+    about_p2:'తెలుగు గ్రామాల నుండి ప్రపంచ చర్చి వరకు, మా కథ పునరుజ్జీవనం, శిష్యత్వం మరియు నిరంతర ఆరాధన యొక్క కథ.',
+    about_feat1:'రోజువారీ జీవితాన్ని మార్చే బైబిల్ ఆధారిత బోధన',
+    about_feat2:'ఇంగ్లీష్ మరియు తెలుగులో ఆత్మ నడిపే ఆరాధన',
+    about_feat3:'కమ్యూనిటీ గ్రూపులు, యువత సమావేశాలు, ప్రార్థన రాత్రులు',
+    about_feat4:'గ్రామాలు మరియు నగరాల్లో క్రియాశీల మిషన్స్',
+    min_kicker:'మేము ఏమి చేస్తున్నాం', min_title:'<em>విశ్వాసం</em> జీవితాన్ని కలిసే చోట.',
+    min_sub:'ఆరు సేవలు. ఒక పిలుపు. మీరు యేసును కొత్తగా తెలుసుకుంటున్నా లేదా చాలా ఏళ్లుగా ఆయనతో నడుస్తున్నా — ఇక్కడ మీ కోసం స్థలం ఉంది.',
+    m1_num:'01 / చిన్నారులు', m1_title:'సండే స్కూల్', m1_desc:'గ్రామ పిల్లల కోసం బైబిల్ కథలు, పాటలు, ప్రార్థన — తరువాతి తరానికి వారు చూడబడతారని, ప్రేమించబడ్డారని, యేసుచేత పిలువబడ్డారని బోధిస్తూ.', m1_cta:'ఒక పిల్లాడిని స్పాన్సర్ చేయండి',
+    m2_num:'02 / వీధులు', m2_title:'స్ట్రీట్ గాస్పెల్', m2_desc:'మనుషులు ఉన్న చోటే — ఫుట్‌పాత్‌లు, బస్ స్టాండులు, మురికివాడలు. సరళమైన సంభాషణలు, నిజాయితీ ప్రార్థన, క్రీస్తు నిరీక్షణ పంచుకోవడం.', m2_cta:'ఔట్‌రీచ్‌లో చేరండి',
+    m3_num:'03 / మరచిపోబడినవారు', m3_title:'కుష్ఠు రోగులు & నిరాశ్రయులు', m3_desc:'కుష్ఠు కాలనీలు మరియు నిరాశ్రయులను ఆహారం, వైద్యం, మానవ గౌరవంతో సందర్శించడం. క్రీస్తు వారికి తోడుగా ఉన్నప్పుడు ఎవరూ మరచిపోబడరు.', m3_cta:'ఈ పనికి మద్దతు',
+    m4_num:'04 / గౌరవం', m4_title:'విధవలు & వృద్ధులు', m4_desc:'వెనుక విడిచిపెట్టబడిన విధవలు మరియు వృద్ధులకు తోడుగా — నెలవారీ రేషన్, ఇంటి సందర్శనలు, ప్రార్థన, మరియు వారు మన కుటుంబమే అనే ఓదార్పు.', m4_cta:'మాతో భాగస్వామి',
+    m5_num:'05 / ఆశ్రయం', m5_title:'చిల్డ్రన్స్ హోమ్', m5_desc:'అనాథ, విడిచిపెట్టబడిన పిల్లలకు సురక్షితమైన నీడ, మూడు భోజనాలు, స్కూల్ ఫీజు, మరియు ఒక కుటుంబం — తమ స్థానం తెలుసని పెరుగుతారు.', m5_cta:'తల్లిదండ్రి అవ్వండి',
+    m6_num:'06 / కాపరులు', m6_title:'పాస్టర్స్ సపోర్ట్', m6_desc:'గ్రామీణ మరియు గ్రామ పాస్టర్లు ఏమీ లేకుండా సేవ చేస్తారు. వారు ప్రకటన కొనసాగించడానికి మేము నెలవారీ స్టైఫండ్, బైబిళ్లు, శిక్షణ, సోదరభావాన్ని అందిస్తాం.', m6_cta:'వారితో నిలబడండి',
+    ser_kicker:'సందేశాలు', ser_title:'చూడండి & <em>ఎదగండి</em>.',
+    ser_sub:'ప్రతి వారం తాజా వాక్యం. నిజ జీవితానికి బైబిల్ ఆధారిత బోధన, పల్పిట్ నుండి మీ ఫోన్‌కి.',
+    ser_badge:'● తాజా సందేశం', ser_feat_title:'మేల్కొనుము, నిద్రించువాడా — లేచి ప్రకాశించు',
+    ser_feat_m1:'👤 పాస్టర్ సందేశం', ser_feat_m2:'📅 ఈ ఆదివారం', ser_feat_m3:'⏱ 52 నిముషాలు',
+    ser_feat_desc:'నిద్రిస్తున్న చర్చికి పిలుపు: సమయం ఆలస్యమైంది, పంట సిద్ధంగా ఉంది. మేల్కొనడానికి, మన శిలువను ఎత్తుకోవడానికి, ప్రభువుతో కలిసి ముగింపు రేఖ వైపు పరుగెత్తడానికి సమయం వచ్చింది.',
+    ser_feat_btn:'సందేశం చూడండి',
+    ser_mini1_title:'స్వస్థపరిచే దేవుడు', ser_mini1_series:'సిరీస్ · ఆయన నామం',
+    ser_mini2_title:'కొండలను కదిలించే విశ్వాసం', ser_mini2_series:'సిరీస్ · రాజ్య జీవితం',
+    ser_mini3_title:'ప్రార్థన జైలును కదిలించినప్పుడు', ser_mini3_series:'సిరీస్ · అపోస్తలుల కార్యములు',
+    ser_yt:'యూట్యూబ్‌లో అన్ని సందేశాలు చూడండి →',
+    con_kicker:'సంప్రదించండి', con_title:'<em>మాట్లాడదాం</em>.',
+    con_sub:'JCNCMకి కొత్తవారా? ప్రశ్న ఉందా? ప్రార్థన అవసరమా? మాకు ఒక సందేశం పంపండి — మేము ప్రతి సందేశం చదివి ఒక రోజులో జవాబిస్తాం.',
+    con_ph_name:'మీ పేరు', con_ph_email:'ఇమెయిల్ చిరునామా', con_ph_phone:'ఫోన్ (ఐచ్ఛికం)', con_ph_msg:'మీ సందేశం లేదా ప్రార్థన అభ్యర్థన...',
+    con_btn_send:'సందేశం పంపండి →',
+    con_sched:'వారపు షెడ్యూల్',
+    con_d1:'ఆదివారం ఆరాధన', con_d2:'బుధవారం ప్రార్థన', con_d3:'శుక్రవారం యువత', con_d4:'శనివారం ఔట్‌రీచ్',
+    con_find:'మమ్మల్ని కనుగొనండి', con_addr:'జీసస్ క్రైస్ట్ ఆఫ్<br>న్యూ క్రియేషన్ మినిస్ట్రీస్<br>ఆంధ్రప్రదేశ్, భారతదేశం',
+    con_follow:'మమ్మల్ని ఫాలో అవ్వండి',
+    con_form_ok:'ధన్యవాదాలు — మీ సందేశం మాకు అందింది. మేము ఒక రోజులో జవాబిస్తాం.',
+    foot_tag:'"దేవుని రాజ్యాన్ని కలిసి నిర్మిస్తూ — ఒక్కో ఆత్మ కోసం."',
+    foot_h1:'అన్వేషించండి', foot_h2:'సంప్రదించండి', foot_h3:'స్థానం',
+    foot_visit:'మమ్మల్ని సందర్శించండి', foot_prayer:'ప్రార్థన అభ్యర్థనలు', foot_contact:'సంప్రదించండి', foot_watch:'ప్రత్యక్ష ప్రసారం',
+    foot_loc1:'ఆంధ్రప్రదేశ్', foot_loc2:'భారతదేశం', foot_loc3:'ఆదివారం · ఉదయం 10',
+    foot_copy:'© ', foot_rights:'జీసస్ క్రైస్ట్ ఆఫ్ న్యూ క్రియేషన్ మినిస్ట్రీస్. అన్ని హక్కులు రక్షించబడ్డాయి.',
+    marquee1:['పునరుజ్జీవనం','విశ్వాసం','ఆరాధన','వాక్యం','ప్రార్థన'],
+    marquee2:['యేసు','పవిత్రాత్మ','సువార్త','శిష్యత్వం','దేశాలు'],
+  },
+  es: {
+    nav_home:'Inicio', nav_about:'Nosotros', nav_sermons:'Prédicas', nav_ministries:'Ministerios', nav_connect:'Conectar', nav_cta:'Únete →',
+    hero_tag:'Jesucristo de Nueva Creación Ministerios',
+    hero_h1:'CONSTRUYENDO', hero_h2:'EL REINO', hero_h3:'JUNTOS',
+    hero_sub:'Una iglesia joven, llena del Espíritu, arraigada en Andhra Pradesh y alcanzando las naciones. Personas reales, fe real, Jesús real — cada domingo, en persona y en línea.',
+    hero_btn_watch:'▶ Ver en Vivo', hero_btn_story:'Nuestra Historia', hero_location:'Andhra Pradesh · India',
+    scroll:'Desplazar',
+    ticker:['Servicio Dominical · 10:00 AM','Oración Miércoles · 7:00 PM','Jóvenes Viernes · 6:30 PM','Basados en Andhra Pradesh, India','En Vivo por YouTube @jcncm.official','Todos son Bienvenidos'],
+    pastor_name:'Pastor Kiran', pastor_role:'Fundador · Pastor Principal',
+    pastor_kicker:'Nuestro Pastor', pastor_title:'Llamado a los <em>olvidados</em>.',
+    pastor_p1:'Mucho antes de que JCNCM existiera, había una carga — por las aldeas que las ciudades habían olvidado, por los pastores que nadie pagaba, por los niños que crecían sin una Biblia en la mano.',
+    pastor_p2:'Esa carga pertenecía a un hombre. Y no lo dejaba ir.',
+    pastor_p3:'Criado en el Andhra Pradesh rural, nuestro pastor vio la brecha entre el Evangelio predicado en escenarios brillantes y la fe silenciosa de las viudas barriendo patios al amanecer. Sintió el llamado no a construir una plataforma más grande, sino a caminar donde las multitudes nunca van.',
+    pastor_p4:'Hoy, JCNCM es la respuesta a ese llamado — un ministerio que no se mide en asientos llenos, sino en aldeas alcanzadas, leprosos amados, huérfanos acogidos y pastores apoyados para que sigan en pie.',
+    pastor_quote:'"Si los olvidados no son recordados por la Iglesia, hemos olvidado el Evangelio."',
+    pastor_cite:'— Un llamado, no una carrera.',
+    about_tag:'● Adoración en Vivo', about_badge:'Creyentes',
+    about_kicker:'Nuestra Historia',
+    about_title:'Una iglesia <em>viva</em><br>con propósito.',
+    about_p1:'JCNCM es más que una reunión dominical — es una familia en misión. Arraigados en la Palabra, guiados por el Espíritu, y plantados en la tierra de Andhra Pradesh, existimos para traer el cielo a la tierra en cada vida que tocamos.',
+    about_p2:'Desde las aldeas telugu hasta la iglesia global, nuestra historia es de avivamiento, discipulado y adoración incansable.',
+    about_feat1:'Enseñanza bíblica que transforma la vida cotidiana',
+    about_feat2:'Adoración guiada por el Espíritu en inglés y telugu',
+    about_feat3:'Grupos comunitarios, reuniones juveniles, noches de oración',
+    about_feat4:'Misiones activas en aldeas y ciudades',
+    min_kicker:'Lo Que Hacemos', min_title:'Donde la <em>fe</em> se encuentra con la vida.',
+    min_sub:'Seis ministerios. Un llamado. Ya sea que eres nuevo en Jesús o llevas años caminando con Él, aquí hay un lugar para ti.',
+    m1_num:'01 / Los Pequeños', m1_title:'Escuela Dominical', m1_desc:'Historias bíblicas, cantos y oración para niños de las aldeas — enseñando a la próxima generación que son vistos, amados y llamados por Jesús.', m1_cta:'Apadrinar un Niño',
+    m2_num:'02 / Las Calles', m2_title:'Evangelio Callejero', m2_desc:'Encontrando a la gente donde está — en aceras, paradas de autobús, barrios. Conversaciones sencillas, oración sincera, y la esperanza de Cristo compartida libremente.', m2_cta:'Únete a un Alcance',
+    m3_num:'03 / Los Olvidados', m3_title:'Leprosos y Desamparados', m3_desc:'Visitando colonias de leprosos y personas sin hogar con alimento, medicina y dignidad humana. Nadie queda olvidado cuando Cristo es su defensor.', m3_cta:'Apoya Este Trabajo',
+    m4_num:'04 / Honra', m4_title:'Viudas y Ancianos', m4_desc:'Apoyando a viudas y ancianos olvidados — raciones mensuales, visitas, oración y el consuelo de saber que son familia para nosotros.', m4_cta:'Asóciate',
+    m5_num:'05 / Refugio', m5_title:'Hogar de Niños', m5_desc:'Un techo seguro, tres comidas, matrícula escolar y una familia para niños huérfanos y abandonados — criados sabiendo que pertenecen.', m5_cta:'Sé un Padre',
+    m6_num:'06 / Pastores', m6_title:'Apoyo a Pastores', m6_desc:'Pastores rurales y de aldeas sirven con casi nada. Les damos estipendios mensuales, Biblias, capacitación y hermandad para que sigan predicando.', m6_cta:'Respáldalos',
+    ser_kicker:'Mensajes', ser_title:'Mira y <em>crece</em>.',
+    ser_sub:'Palabra fresca cada semana. Enseñanza bíblica para la vida real, del púlpito a tu teléfono.',
+    ser_badge:'● Último Mensaje', ser_feat_title:'Despierta, Durmiente — Levántate y Brilla',
+    ser_feat_m1:'👤 Mensaje del Pastor', ser_feat_m2:'📅 Este Domingo', ser_feat_m3:'⏱ 52 min',
+    ser_feat_desc:'Un llamado a la iglesia dormida: la hora es tardía, la cosecha está lista. Es hora de despertar, tomar nuestra cruz y correr hacia la meta con el Señor.',
+    ser_feat_btn:'Ver Mensaje',
+    ser_mini1_title:'El Dios Que Sana', ser_mini1_series:'Serie · Su Nombre',
+    ser_mini2_title:'La Fe Mueve Montañas', ser_mini2_series:'Serie · Vida del Reino',
+    ser_mini3_title:'Cuando la Oración Sacude la Prisión', ser_mini3_series:'Serie · Hechos de Poder',
+    ser_yt:'Ver todos los mensajes en YouTube →',
+    con_kicker:'Conectar', con_title:'<em>Hablemos</em>.',
+    con_sub:'¿Nuevo en JCNCM? ¿Tienes preguntas? ¿Necesitas oración? Escríbenos — leemos cada mensaje y respondemos en un día.',
+    con_ph_name:'Tu nombre', con_ph_email:'Correo electrónico', con_ph_phone:'Teléfono (opcional)', con_ph_msg:'Tu mensaje o petición de oración...',
+    con_btn_send:'Enviar Mensaje →',
+    con_sched:'Horario Semanal',
+    con_d1:'Servicio Dominical', con_d2:'Oración Miércoles', con_d3:'Jóvenes Viernes', con_d4:'Alcance Sábado',
+    con_find:'Encuéntranos', con_addr:'Jesucristo de<br>Nueva Creación Ministerios<br>Andhra Pradesh, India',
+    con_follow:'Síguenos',
+    con_form_ok:'Gracias — hemos recibido tu mensaje. Responderemos en un día.',
+    foot_tag:'"Construyendo el Reino, juntos — un alma a la vez."',
+    foot_h1:'Explora', foot_h2:'Conecta', foot_h3:'Ubicación',
+    foot_visit:'Visítanos', foot_prayer:'Peticiones', foot_contact:'Contacto', foot_watch:'Ver en Vivo',
+    foot_loc1:'Andhra Pradesh', foot_loc2:'India', foot_loc3:'Domingo · 10 AM',
+    foot_copy:'© ', foot_rights:'Jesucristo de Nueva Creación Ministerios. Todos los derechos reservados.',
+    marquee1:['AVIVAMIENTO','FE','ADORACIÓN','LA PALABRA','ORACIÓN'],
+    marquee2:['JESÚS','ESPÍRITU SANTO','EL EVANGELIO','DISCIPULADO','NACIONES'],
+  },
+  fr: {
+    nav_home:'Accueil', nav_about:'À propos', nav_sermons:'Prédications', nav_ministries:'Ministères', nav_connect:'Contact', nav_cta:'Rejoignez-nous →',
+    hero_tag:'Jésus-Christ de la Nouvelle Création',
+    hero_h1:'BÂTIR', hero_h2:'LE ROYAUME', hero_h3:'ENSEMBLE',
+    hero_sub:"Une église jeune, remplie de l'Esprit, enracinée en Andhra Pradesh et rayonnant vers les nations. De vraies personnes, une vraie foi, un vrai Jésus — chaque dimanche, en présentiel et en ligne.",
+    hero_btn_watch:'▶ Regarder en Direct', hero_btn_story:'Notre Histoire', hero_location:'Andhra Pradesh · Inde',
+    scroll:'Défiler',
+    ticker:['Culte Dimanche · 10h00','Prière Mercredi · 19h00','Jeunesse Vendredi · 18h30','Basés en Andhra Pradesh, Inde','En direct sur YouTube @jcncm.official','Tous sont bienvenus'],
+    pastor_name:'Pasteur Kiran', pastor_role:'Fondateur · Pasteur Principal',
+    pastor_kicker:'Notre Pasteur', pastor_title:'Appelé aux <em>oubliés</em>.',
+    pastor_p1:"Bien avant que JCNCM n'existe, il y avait un fardeau — pour les villages que les villes avaient oubliés, pour les pasteurs que personne ne payait, pour les enfants qui grandissaient sans Bible entre les mains.",
+    pastor_p2:"Ce fardeau appartenait à un seul homme. Et il ne le laissait pas partir.",
+    pastor_p3:"Élevé dans l'Andhra Pradesh rural, notre pasteur a vu le fossé entre l'Évangile prêché sur des scènes brillantes et la foi silencieuse des veuves balayant les cours à l'aube. Il a ressenti l'appel non pas à construire une plus grande plateforme, mais à marcher là où les foules ne vont jamais.",
+    pastor_p4:"Aujourd'hui, JCNCM est la réponse à cet appel — un ministère qui ne se mesure pas en sièges remplis, mais en villages atteints, lépreux aimés, orphelins logés, et pasteurs soutenus pour qu'ils puissent tenir debout.",
+    pastor_quote:'« Si les oubliés ne sont pas rappelés par l\'Église, nous avons oublié l\'Évangile. »',
+    pastor_cite:"— Un appel, pas une carrière.",
+    about_tag:'● Adoration en Direct', about_badge:'Croyants',
+    about_kicker:'Notre Histoire',
+    about_title:'Une église <em>vivante</em><br>avec un but.',
+    about_p1:"JCNCM est plus qu'un rassemblement dominical — c'est une famille en mission. Enracinés dans la Parole, conduits par l'Esprit, et plantés dans le sol de l'Andhra Pradesh, nous existons pour amener le ciel sur la terre dans chaque vie que nous touchons.",
+    about_p2:"Des villages télougous à l'Église globale, notre histoire est celle du réveil, du discipulat et d'une adoration incessante.",
+    about_feat1:'Enseignement biblique qui transforme la vie quotidienne',
+    about_feat2:"Adoration conduite par l'Esprit en anglais et en télougou",
+    about_feat3:'Groupes communautaires, réunions de jeunes, nuits de prière',
+    about_feat4:'Missions actives dans les villages et les villes',
+    min_kicker:'Ce Que Nous Faisons', min_title:'Là où la <em>foi</em> rencontre la vie.',
+    min_sub:"Six ministères. Un appel. Que vous soyez nouveau en Jésus ou que vous marchiez avec Lui depuis des années, il y a une place pour vous ici.",
+    m1_num:'01 / Les Petits', m1_title:'École du Dimanche', m1_desc:"Histoires bibliques, chants et prière pour les enfants des villages — enseignant à la prochaine génération qu'ils sont vus, aimés et appelés par Jésus.", m1_cta:'Parrainer un Enfant',
+    m2_num:'02 / Les Rues', m2_title:'Évangile dans la Rue', m2_desc:"Rencontrer les gens là où ils sont — sur les trottoirs, aux arrêts de bus, dans les bidonvilles. Conversations simples, prière sincère, et l'espérance du Christ partagée librement.", m2_cta:"Rejoindre une Action",
+    m3_num:'03 / Les Oubliés', m3_title:'Lépreux et Démunis', m3_desc:"Visiter les colonies de lépreux et les sans-abri avec nourriture, médicaments et dignité. Personne n'est oublié quand le Christ est son défenseur.", m3_cta:'Soutenir',
+    m4_num:'04 / Honneur', m4_title:'Veuves et Personnes Âgées', m4_desc:'Soutenir les veuves et les aînés laissés pour compte — rations mensuelles, visites à domicile, prière, et la consolation de savoir qu’ils sont de la famille.', m4_cta:'Devenir Partenaire',
+    m5_num:'05 / Abri', m5_title:'Foyer pour Enfants', m5_desc:"Un toit sûr, trois repas, frais de scolarité et une famille pour les enfants orphelins et abandonnés — élevés dans la certitude d'appartenir.", m5_cta:'Devenir Parent',
+    m6_num:'06 / Pasteurs', m6_title:'Soutien aux Pasteurs', m6_desc:"Les pasteurs ruraux servent presque sans rien. Nous fournissons bourses mensuelles, Bibles, formation et fraternité afin qu'ils puissent continuer à prêcher.", m6_cta:'Les Soutenir',
+    ser_kicker:'Messages', ser_title:'Regardez & <em>grandissez</em>.',
+    ser_sub:'Une Parole fraîche chaque semaine. Enseignement biblique pour la vraie vie, de la chaire à votre téléphone.',
+    ser_badge:'● Dernier Message', ser_feat_title:'Réveille-toi, Dormeur — Lève-toi et Brille',
+    ser_feat_m1:'👤 Message du Pasteur', ser_feat_m2:'📅 Ce Dimanche', ser_feat_m3:'⏱ 52 min',
+    ser_feat_desc:"Un appel à l'Église endormie : l'heure est tardive, la moisson est prête. Il est temps de nous réveiller, de prendre notre croix et de courir vers la ligne d'arrivée avec le Seigneur.",
+    ser_feat_btn:'Voir le Message',
+    ser_mini1_title:'Le Dieu Qui Guérit', ser_mini1_series:'Série · Son Nom',
+    ser_mini2_title:'La Foi Qui Déplace les Montagnes', ser_mini2_series:'Série · Vie du Royaume',
+    ser_mini3_title:"Quand la Prière Secoue la Prison", ser_mini3_series:'Série · Actes de Puissance',
+    ser_yt:'Voir tous les messages sur YouTube →',
+    con_kicker:'Contact', con_title:'<em>Parlons</em>.',
+    con_sub:"Nouveau à JCNCM ? Une question ? Besoin de prière ? Écrivez-nous — nous lisons chaque message et répondons dans la journée.",
+    con_ph_name:'Votre nom', con_ph_email:'Adresse e-mail', con_ph_phone:'Téléphone (facultatif)', con_ph_msg:'Votre message ou demande de prière...',
+    con_btn_send:'Envoyer →',
+    con_sched:'Programme Hebdomadaire',
+    con_d1:'Culte Dimanche', con_d2:'Prière Mercredi', con_d3:'Jeunesse Vendredi', con_d4:'Action Samedi',
+    con_find:'Nous Trouver', con_addr:'Jésus-Christ de la<br>Nouvelle Création<br>Andhra Pradesh, Inde',
+    con_follow:'Suivez-nous',
+    con_form_ok:'Merci — votre message a bien été reçu. Nous répondrons dans la journée.',
+    foot_tag:'« Bâtir le Royaume, ensemble — une âme à la fois. »',
+    foot_h1:'Explorer', foot_h2:'Contact', foot_h3:'Lieu',
+    foot_visit:'Nous Rendre Visite', foot_prayer:'Demandes de Prière', foot_contact:'Contact', foot_watch:'Regarder en Direct',
+    foot_loc1:'Andhra Pradesh', foot_loc2:'Inde', foot_loc3:'Dimanche · 10h',
+    foot_copy:'© ', foot_rights:'Jésus-Christ de la Nouvelle Création. Tous droits réservés.',
+    marquee1:['RÉVEIL','FOI','ADORATION','LA PAROLE','PRIÈRE'],
+    marquee2:['JÉSUS','SAINT-ESPRIT','L\'ÉVANGILE','DISCIPULAT','NATIONS'],
+  }
+};
+
+const LANG_CODES = { en:'EN', te:'TE', es:'ES', fr:'FR' };
+
+function applyLang(code){
+  const dict = I18N[code] || I18N.en;
+  document.documentElement.lang = code;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if(dict[k] != null) el.textContent = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.getAttribute('data-i18n-html');
+    if(dict[k] != null) el.innerHTML = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const k = el.getAttribute('data-i18n-ph');
+    if(dict[k] != null) el.placeholder = dict[k];
+  });
+  // Ticker
+  const tk = document.getElementById('tickerTrack');
+  if(tk && dict.ticker){
+    tk.innerHTML = dict.ticker.concat(dict.ticker).map(t => `<span>${t}</span>`).join('');
+  }
+  // Marquee
+  const m1 = document.getElementById('marquee1');
+  const m2 = document.getElementById('marquee2');
+  if(m1 && dict.marquee1){ m1.innerHTML = dict.marquee1.concat(dict.marquee1).map(w=>`<span>${w}</span>`).join(''); }
+  if(m2 && dict.marquee2){ m2.innerHTML = dict.marquee2.concat(dict.marquee2).map(w=>`<span>${w}</span>`).join(''); }
+  // Switcher UI
+  document.getElementById('langCurrent').textContent = LANG_CODES[code] || 'EN';
+  document.querySelectorAll('#langMenu button').forEach(b => b.classList.toggle('active', b.dataset.lang === code));
+  localStorage.setItem('jcncm_lang', code);
+  // Store current form-ok message for JS use
+  window.__FORM_OK = dict.con_form_ok || '';
+}
+
+const savedLang = localStorage.getItem('jcncm_lang') || 'en';
+applyLang(savedLang);
+
+// Switcher interactions
+const langBtn = document.getElementById('langBtn');
+const langMenu = document.getElementById('langMenu');
+langBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  langMenu.classList.toggle('open');
+});
+document.addEventListener('click', () => langMenu.classList.remove('open'));
+document.querySelectorAll('#langMenu button').forEach(b => {
+  b.addEventListener('click', (e) => {
+    e.stopPropagation();
+    applyLang(b.dataset.lang);
+    langMenu.classList.remove('open');
+  });
+});
+
+/* ───── Custom cursor ───── */
+(function(){
+  if(matchMedia('(pointer:coarse)').matches) return;
+  const dot = document.querySelector('.cursor');
+  const ring = document.querySelector('.cursor-ring');
+  let x=0,y=0,rx=0,ry=0;
+  window.addEventListener('mousemove', e => { x=e.clientX; y=e.clientY; dot.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`; });
+  (function loop(){ rx += (x-rx)*.18; ry += (y-ry)*.18; ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a,button,.m-card,.sermon-mini,.sermon-featured,input,textarea').forEach(el => {
+    el.addEventListener('mouseenter', ()=>document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', ()=>document.body.classList.remove('hovering'));
+  });
+})();
+
+/* ───── Nav scroll + mobile ───── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20), { passive:true });
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('open');
+}));
+
+/* ───── Scroll reveal ───── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ───── Magnetic buttons (desktop only) ───── */
+if(!matchMedia('(pointer:coarse)').matches){
+  document.querySelectorAll('.btn,.play-btn .circle').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const mx = e.clientX - r.left - r.width/2;
+      const my = e.clientY - r.top - r.height/2;
+      btn.style.transform = `translate(${mx*.18}px,${my*.25}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+}
+
+/* ───── Counter animation on stat badge ───── */
+const statNum = document.querySelector('.stat-badge .num');
+if(statNum){
+  const target = parseInt(statNum.textContent) || 500;
+  const suffix = statNum.textContent.replace(/[0-9]/g,'');
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      countIO.unobserve(e.target);
+      let n = 0;
+      const start = performance.now();
+      const dur = 1600;
+      (function tick(t){
+        const p = Math.min((t-start)/dur, 1);
+        const eased = 1 - Math.pow(1-p, 3);
+        n = Math.floor(eased * target);
+        e.target.textContent = n + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: .5 });
+  countIO.observe(statNum);
+}
+
+/* ───── Parallax hero orbs ───── */
+const blur1 = document.querySelector('.hero-blur-1');
+const blur2 = document.querySelector('.hero-blur-2');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if(y > 800) return;
+  if(blur1) blur1.style.transform = `translateY(${y * .3}px)`;
+  if(blur2) blur2.style.transform = `translateY(${y * -.2}px)`;
+}, { passive: true });
+
+/* ───── Form (client-side only — no backend) ───── */
+function submitForm(e){
+  e.preventDefault();
+  const msg = document.getElementById('formMsg');
+  msg.style.color = 'var(--red)';
+  msg.textContent = window.__FORM_OK || "Thanks — we've received your message.";
+  e.target.reset();
+  setTimeout(() => msg.textContent = '', 6000);
+  return false;
+}
+
+/* ───── Footer year ───── */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
