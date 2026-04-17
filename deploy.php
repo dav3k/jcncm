@@ -9,7 +9,9 @@
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────
 // Change this to a strong random string. Must match GitHub webhook secret.
-define('WEBHOOK_SECRET', 'a55d7bd1bb55267f21f2b3b4075f9f13733c8fb4017694545fdabe1eb3318977');
+// Secret is set on the server only (not in git).
+// Edit this value directly in cPanel File Manager → public_html/deploy.php
+define('WEBHOOK_SECRET', getenv('WEBHOOK_SECRET') ?: 'SET_ON_SERVER');
 
 // Absolute path to the cPanel-managed git repo.
 // Typically: /home/<cpanel_user>/repositories/jcncm
