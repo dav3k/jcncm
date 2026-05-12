@@ -287,6 +287,31 @@ body.hovering .cursor-ring{width:52px;height:52px;background:rgba(230,57,70,.08)
 .m-card:hover .m-link{gap:14px}
 .m-link::after{content:'→';transition:transform .3s var(--ease)}
 
+/* ─────────────────────────  GALLERY  ───────────────────────── */
+.gallery{padding:120px 0;background:var(--black);position:relative;overflow:hidden}
+.gallery::before{content:'';position:absolute;top:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,var(--red),transparent 70%);opacity:.12;pointer-events:none}
+.gallery-header{text-align:center;max-width:720px;margin:0 auto 40px}
+.gallery-header h2{font-size:clamp(44px,5vw,72px);margin-bottom:16px;color:var(--white)}
+.gallery-header h2 em{color:var(--red);font-style:normal}
+.gallery-header p{color:rgba(255,255,255,.6);font-size:16px}
+.gallery-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:48px;flex-wrap:wrap}
+.gallery-tab{padding:10px 24px;border-radius:100px;border:1.5px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all .3s var(--ease)}
+.gallery-tab:hover{border-color:rgba(255,255,255,.4);color:var(--white)}
+.gallery-tab.active{background:var(--red);border-color:var(--red);color:var(--white)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.gallery-grid{grid-template-columns:1fr}}
+.gallery-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6));pointer-events:none}
+.gallery-item[hidden]{display:none}
+.gallery-caption{position:absolute;bottom:16px;left:16px;right:16px;z-index:2;color:var(--white);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.gallery-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.gallery-lightbox.open{opacity:1;pointer-events:auto}
+.gallery-lightbox img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain}
+.gallery-lightbox-close{position:absolute;top:24px;right:28px;color:var(--white);font-size:32px;cursor:pointer;background:none;border:none;line-height:1}
+
 /* ─────────────────────────  MARQUEE  ───────────────────────── */
 .marquee{background:var(--light-gray);padding:80px 0;overflow:hidden;position:relative}
 .marquee-row{display:flex;gap:50px;white-space:nowrap;font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,9vw,140px);line-height:1;letter-spacing:.02em}
@@ -409,6 +434,7 @@ body.hovering .cursor-ring{width:52px;height:52px;background:rgba(230,57,70,.08)
       <li><a href="#about" data-i18n="nav_about">About</a></li>
       <li><a href="#sermons" data-i18n="nav_sermons">Sermons</a></li>
       <li><a href="#ministries" data-i18n="nav_ministries">Ministries</a></li>
+      <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
       <li><a href="#connect" data-i18n="nav_connect">Connect</a></li>
     </ul>
     <div class="lang-switcher">
@@ -581,6 +607,23 @@ body.hovering .cursor-ring{width:52px;height:52px;background:rgba(230,57,70,.08)
   </div>
 </section>
 
+<!-- ─────────  GALLERY  ───────── -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <span class="section-kicker" style="justify-content:center;color:rgba(255,255,255,.5)" data-i18n="gal_kicker">Our Life Together</span>
+      <h2 data-i18n-html="gal_title">Faith in <em>action.</em></h2>
+      <p data-i18n="gal_sub">Worship, outreach, and community — glimpses of God at work through JCNCM.</p>
+    </div>
+    <div class="gallery-tabs" id="galleryTabs"></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+  <div class="gallery-lightbox" id="galleryLightbox">
+    <button class="gallery-lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+</section>
+
 <!-- ─────────  MARQUEE  ───────── -->
 <section class="marquee">
   <div class="marquee-row outline" id="marquee1"></div>
@@ -700,6 +743,7 @@ body.hovering .cursor-ring{width:52px;height:52px;background:rgba(230,57,70,.08)
           <li><a href="#home" data-i18n="nav_home">Home</a></li>
           <li><a href="#about" data-i18n="nav_about">About</a></li>
           <li><a href="#ministries" data-i18n="nav_ministries">Ministries</a></li>
+          <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
           <li><a href="#sermons" data-i18n="nav_sermons">Sermons</a></li>
         </ul>
       </div>
@@ -739,7 +783,8 @@ body.hovering .cursor-ring{width:52px;height:52px;background:rgba(230,57,70,.08)
 /* ───── Translations ───── */
 const I18N = {
   en: {
-    nav_home:'Home', nav_about:'About', nav_sermons:'Sermons', nav_ministries:'Ministries', nav_connect:'Connect', nav_cta:'Join Us →',
+    nav_home:'Home', nav_about:'About', nav_sermons:'Sermons', nav_ministries:'Ministries', nav_gallery:'Gallery', nav_connect:'Connect', nav_cta:'Join Us →',
+    gal_kicker:'Our Life Together', gal_title:'Faith in <em>action.</em>', gal_sub:'Worship, outreach, and community — glimpses of God at work through JCNCM.',
     hero_tag:'Jesus Christ of New Creation Ministries',
     hero_h1:'BUILDING', hero_h2:'THE KINGDOM', hero_h3:'TOGETHER',
     hero_sub:"A young, Spirit-filled church rooted in Andhra Pradesh and reaching the nations. Real people, real faith, real Jesus — every Sunday, in person and online.",
@@ -799,7 +844,8 @@ const I18N = {
     marquee2:['JESUS','HOLY SPIRIT','THE GOSPEL','DISCIPLESHIP','NATIONS'],
   },
   te: {
-    nav_home:'హోమ్', nav_about:'మా గురించి', nav_sermons:'సందేశాలు', nav_ministries:'సేవలు', nav_connect:'సంప్రదించండి', nav_cta:'మాతో చేరండి →',
+    nav_home:'హోమ్', nav_about:'మా గురించి', nav_sermons:'సందేశాలు', nav_ministries:'సేవలు', nav_gallery:'ఫోటోలు', nav_connect:'సంప్రదించండి', nav_cta:'మాతో చేరండి →',
+    gal_kicker:'మా జీవితం కలిసి', gal_title:'విశ్వాసం <em>చర్యలో.</em>', gal_sub:'ఆరాధన, సేవ మరియు సమాజం — JCNCM ద్వారా దేవుడు పని చేస్తున్న దృశ్యాలు.',
     hero_tag:'జీసస్ క్రైస్ట్ ఆఫ్ న్యూ క్రియేషన్ మినిస్ట్రీస్',
     hero_h1:'నిర్మిస్తున్నాం', hero_h2:'దేవుని రాజ్యం', hero_h3:'కలిసి',
     hero_sub:'ఆంధ్రప్రదేశ్‌లో నాటుకున్న, దేశాలకు చేరే ఒక యువ, ఆత్మ నిండిన చర్చి. నిజమైన మనుషులు, నిజమైన విశ్వాసం, నిజమైన యేసు — ప్రతి ఆదివారం, ప్రత్యక్షంగా మరియు ఆన్‌లైన్‌లో.',
@@ -859,7 +905,8 @@ const I18N = {
     marquee2:['యేసు','పవిత్రాత్మ','సువార్త','శిష్యత్వం','దేశాలు'],
   },
   es: {
-    nav_home:'Inicio', nav_about:'Nosotros', nav_sermons:'Prédicas', nav_ministries:'Ministerios', nav_connect:'Conectar', nav_cta:'Únete →',
+    nav_home:'Inicio', nav_about:'Nosotros', nav_sermons:'Prédicas', nav_ministries:'Ministerios', nav_gallery:'Galería', nav_connect:'Conectar', nav_cta:'Únete →',
+    gal_kicker:'Nuestra Vida Juntos', gal_title:'Fe en <em>acción.</em>', gal_sub:'Adoración, alcance y comunidad — vislumbres de Dios obrando a través de JCNCM.',
     hero_tag:'Jesucristo de Nueva Creación Ministerios',
     hero_h1:'CONSTRUYENDO', hero_h2:'EL REINO', hero_h3:'JUNTOS',
     hero_sub:'Una iglesia joven, llena del Espíritu, arraigada en Andhra Pradesh y alcanzando las naciones. Personas reales, fe real, Jesús real — cada domingo, en persona y en línea.',
@@ -919,7 +966,8 @@ const I18N = {
     marquee2:['JESÚS','ESPÍRITU SANTO','EL EVANGELIO','DISCIPULADO','NACIONES'],
   },
   fr: {
-    nav_home:'Accueil', nav_about:'À propos', nav_sermons:'Prédications', nav_ministries:'Ministères', nav_connect:'Contact', nav_cta:'Rejoignez-nous →',
+    nav_home:'Accueil', nav_about:'À propos', nav_sermons:'Prédications', nav_ministries:'Ministères', nav_gallery:'Galerie', nav_connect:'Contact', nav_cta:'Rejoignez-nous →',
+    gal_kicker:'Notre Vie Ensemble', gal_title:'La foi en <em>action.</em>', gal_sub:'Adoration, mission et communauté — des aperçus de Dieu à l\'œuvre à travers JCNCM.',
     hero_tag:'Jésus-Christ de la Nouvelle Création',
     hero_h1:'BÂTIR', hero_h2:'LE ROYAUME', hero_h3:'ENSEMBLE',
     hero_sub:"Une église jeune, remplie de l'Esprit, enracinée en Andhra Pradesh et rayonnant vers les nations. De vraies personnes, une vraie foi, un vrai Jésus — chaque dimanche, en présentiel et en ligne.",
@@ -1124,6 +1172,76 @@ function submitForm(e){
 
 /* ───── Footer year ───── */
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ───── Gallery: auto-load from folders ───── */
+(function(){
+  var LABELS = {vbs:'VBS', worship:'Worship', outreach:'Outreach', village:'Village Ministry'};
+  var tabsEl = document.getElementById('galleryTabs');
+  var gridEl = document.getElementById('galleryGrid');
+  var lb = document.getElementById('galleryLightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbClose = document.getElementById('lightboxClose');
+  if (!tabsEl || !gridEl) return;
+
+  function buildGallery(data) {
+    /* tabs */
+    var html = '<button class="gallery-tab active" data-cat="all">All</button>';
+    data.forEach(function(g) {
+      html += '<button class="gallery-tab" data-cat="' + g.category + '">' + (LABELS[g.category] || g.category) + '</button>';
+    });
+    tabsEl.innerHTML = html;
+
+    /* photos */
+    var grid = '';
+    data.forEach(function(g) {
+      g.photos.forEach(function(src) {
+        var name = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+        var cap = (LABELS[g.category] || g.category);
+        grid += '<div class="gallery-item reveal" data-cat="' + g.category + '">'
+          + '<img src="' + src + '" alt="' + cap + ' — ' + name + '" loading="lazy" />'
+          + '<div class="gallery-caption">' + cap + '</div></div>';
+      });
+    });
+    gridEl.innerHTML = grid;
+
+    /* tab clicks */
+    tabsEl.querySelectorAll('.gallery-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var cat = this.dataset.cat;
+        tabsEl.querySelectorAll('.gallery-tab').forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
+        gridEl.querySelectorAll('.gallery-item').forEach(function(item) {
+          item.hidden = (cat !== 'all' && item.dataset.cat !== cat);
+        });
+      });
+    });
+
+    /* lightbox */
+    gridEl.querySelectorAll('.gallery-item img').forEach(function(img) {
+      img.addEventListener('click', function() {
+        lbImg.src = this.src; lbImg.alt = this.alt; lb.classList.add('open');
+      });
+    });
+  }
+
+  /* fetch from PHP on live site */
+  fetch('gallery-api.php')
+    .then(function(r) { return r.json(); })
+    .then(buildGallery)
+    .catch(function() {
+      /* fallback: hardcoded for local preview / static hosting */
+      buildGallery([
+        {category:'vbs', photos:['photos/vbs/vbs-1.jpeg','photos/vbs/vbs-2.jpeg','photos/vbs/vbs-4.jpeg','photos/vbs/vbs-5.jpg']},
+        {category:'worship', photos:['photos/worship/worship-1.jpg']},
+        {category:'outreach', photos:['photos/outreach/outreach-1.jpg']},
+        {category:'village', photos:['photos/village/village-1.jpg']}
+      ]);
+    });
+
+  lbClose.addEventListener('click', function() { lb.classList.remove('open'); });
+  lb.addEventListener('click', function(e) { if (e.target === lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') lb.classList.remove('open'); });
+})();
 </script>
 </body>
 </html>
