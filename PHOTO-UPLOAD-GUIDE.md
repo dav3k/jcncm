@@ -2,6 +2,19 @@
 
 This guide shows you how to upload photos to the church website. You don't need any technical knowledge — everything is done through a website.
 
+Photos are organized into folders. Upload to the correct folder and the photo will automatically appear in the right category on the website.
+
+---
+
+## Photo Folders
+
+| Folder | What goes here |
+|--------|---------------|
+| **photos/vbs/** | Vacation Bible School photos |
+| **photos/worship/** | Sunday service and worship photos |
+| **photos/outreach/** | Community feeding, street gospel photos |
+| **photos/village/** | Village ministry and preaching photos |
+
 ---
 
 ## First Time Only — Create a GitHub Account
@@ -18,13 +31,17 @@ Once Darius adds you, you'll get an email invitation — **click Accept**.
 
 ## How to Upload Photos
 
-### Step 1 — Open the photos folder
+### Step 1 — Open the correct folder
 
-Go to this link in your browser:
+Go to **github.com/dav3k/jcncm** in your browser.
 
-**github.com/dav3k/jcncm**
+Click on the **photos** folder. Then click on the category folder you want:
+- Click **vbs** for VBS photos
+- Click **worship** for worship photos
+- Click **outreach** for outreach photos
+- Click **village** for village ministry photos
 
-Click on the **photos** folder.
+**Important:** Make sure you are inside the correct folder before uploading!
 
 ### Step 2 — Click "Add file"
 
@@ -41,9 +58,9 @@ You can upload multiple photos at once.
 ### Step 4 — Write a short description
 
 In the box that says "Add files via upload", write a short note about what the photos are. For example:
-- "Sunday worship photos - May 2026"
-- "Outreach event photos"
-- "New church building photos"
+- "VBS May 2026 photos"
+- "Sunday worship photos"
+- "Outreach feeding event"
 
 ### Step 5 — Create a new branch
 
@@ -51,7 +68,7 @@ At the bottom of the page, you will see two options:
 - Commit directly to the main branch
 - **Create a new branch** ← Select this one
 
-Leave the branch name as whatever GitHub suggests. It will look something like `your-username-patch-1`.
+Leave the branch name as whatever GitHub suggests.
 
 ### Step 6 — Click "Propose changes"
 
@@ -61,27 +78,29 @@ Click the green **Propose changes** button.
 
 A new page will appear. Click the green **Create pull request** button.
 
-**Done!** Darius will receive a notification. He will review your photos and approve them. Once approved, the photos will appear on the website automatically.
+**Done!** Darius will receive a notification. He will review your photos and approve them. Once approved, the photos will appear on the website automatically — no extra steps needed.
 
 ---
 
-## Important Notes
+## Rules for Photos
 
-- **Photo size**: Try to keep each photo under 2 MB. Larger photos slow down the website.
-- **Photo format**: Use .jpg or .png files only.
-- **File names**: Use simple names with no spaces. For example: `worship-may-2026.jpg` (not `IMG_20260510 (2).jpg`)
-- **Do not delete** existing photos — only add new ones.
+1. **Correct folder** — Always upload to the right folder (vbs, worship, outreach, or village)
+2. **File names** — Use simple names with no spaces. Good: `vbs-kids-playing.jpg` Bad: `IMG_20260510 (2).jpg`
+3. **Photo size** — Keep each photo under 2 MB
+4. **Photo format** — Use .jpg or .png files only
+5. **Do not delete** existing photos — only add new ones
+6. **Do not upload** to the main photos folder directly — always go into a category folder
 
 ---
 
 ## Quick Summary
 
-1. Go to github.com/dav3k/jcncm → photos folder
-2. Click Add file → Upload files
-3. Drop your photos
-4. Write a short note
-5. Select "Create a new branch"
-6. Click Propose changes → Create pull request
-7. Wait for Darius to approve
-
-That's it!
+1. Go to github.com/dav3k/jcncm
+2. Click photos → click the right category folder (vbs, worship, outreach, or village)
+3. Click Add file → Upload files
+4. Drop your photos
+5. Write a short note
+6. Select "Create a new branch"
+7. Click Propose changes → Create pull request
+8. Wait for Darius to approve
+9. Photos appear on the website automatically!
