@@ -1197,7 +1197,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       g.photos.forEach(function(src) {
         var name = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
         var cap = (LABELS[g.category] || g.category);
-        grid += '<div class="gallery-item reveal" data-cat="' + g.category + '">'
+        grid += '<div class="gallery-item reveal in" data-cat="' + g.category + '">'
           + '<img src="' + src + '" alt="' + cap + ' — ' + name + '" loading="lazy" />'
           + '<div class="gallery-caption">' + cap + '</div></div>';
       });
