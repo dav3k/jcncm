@@ -1176,6 +1176,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* ───── Gallery: auto-load from folders ───── */
 (function(){
   var LABELS = {vbs:'VBS', worship:'Worship', outreach:'Outreach', village:'Village Ministry'};
+  function labelFor(cat) {
+    if (LABELS[cat]) return LABELS[cat];
+    var m = cat.match(/^(.+)-(\d{4})$/);
+    if (m && LABELS[m[1]]) return LABELS[m[1]] + ' ' + m[2];
+    return cat;
+  }
   var tabsEl = document.getElementById('galleryTabs');
   var gridEl = document.getElementById('galleryGrid');
   var lb = document.getElementById('galleryLightbox');
@@ -1187,7 +1193,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     /* tabs */
     var html = '<button class="gallery-tab active" data-cat="all">All</button>';
     data.forEach(function(g) {
-      html += '<button class="gallery-tab" data-cat="' + g.category + '">' + (LABELS[g.category] || g.category) + '</button>';
+      html += '<button class="gallery-tab" data-cat="' + g.category + '">' + labelFor(g.category) + '</button>';
     });
     tabsEl.innerHTML = html;
 
@@ -1196,7 +1202,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     data.forEach(function(g) {
       g.photos.forEach(function(src) {
         var name = src.split('/').pop().replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
-        var cap = (LABELS[g.category] || g.category);
+        var cap = labelFor(g.category);
         grid += '<div class="gallery-item reveal in" data-cat="' + g.category + '">'
           + '<img src="' + src + '" alt="' + cap + ' — ' + name + '" loading="lazy" />'
           + '<div class="gallery-caption">' + cap + '</div></div>';
@@ -1231,7 +1237,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     .catch(function() {
       /* fallback: hardcoded for local preview / static hosting */
       buildGallery([
-        {category:'vbs', photos:['photos/vbs/vbs-1.jpeg','photos/vbs/vbs-2.jpeg','photos/vbs/vbs-4.jpeg','photos/vbs/vbs-5.jpg']},
+        {category:'vbs-2026', photos:['photos/vbs-2026/vbs-1.jpeg','photos/vbs-2026/vbs-2.jpeg','photos/vbs-2026/vbs-3.jpeg','photos/vbs-2026/vbs-4.jpeg','photos/vbs-2026/vbs-5.jpg']},
         {category:'worship', photos:['photos/worship/worship-1.jpg','photos/worship/worship-2.jpg','photos/worship/worship-3.jpg']},
         {category:'outreach', photos:['photos/outreach/outreach-1.jpg','photos/outreach/outreach-2.jpg','photos/outreach/outreach-3.jpg']},
         {category:'village', photos:['photos/village/village-1.jpg','photos/village/village-2.jpg']}
