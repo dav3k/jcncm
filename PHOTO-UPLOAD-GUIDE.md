@@ -10,10 +10,12 @@ Photos are organized into folders. Upload to the correct folder and the photo wi
 
 | Folder | What goes here |
 |--------|---------------|
-| **photos/vbs/** | Vacation Bible School photos |
+| **photos/vbs-2026/** | Vacation Bible School 2026 photos (next year: create **photos/vbs-2027/**) |
 | **photos/worship/** | Sunday service and worship photos |
 | **photos/outreach/** | Community feeding, street gospel photos |
 | **photos/village/** | Village ministry and preaching photos |
+
+**Note:** VBS photos are organized by year. Each year, create a new folder named `vbs-YYYY` (for example `photos/vbs-2027/`). The new tab will appear on the website automatically.
 
 ---
 
@@ -36,7 +38,7 @@ Once Darius adds you, you'll get an email invitation — **click Accept**.
 Go to **github.com/dav3k/jcncm** in your browser.
 
 Click on the **photos** folder. Then click on the category folder you want:
-- Click **vbs** for VBS photos
+- Click **vbs-2026** for VBS 2026 photos
 - Click **worship** for worship photos
 - Click **outreach** for outreach photos
 - Click **village** for village ministry photos
@@ -84,7 +86,7 @@ A new page will appear. Click the green **Create pull request** button.
 
 ## Rules for Photos
 
-1. **Correct folder** — Always upload to the right folder (vbs, worship, outreach, or village)
+1. **Correct folder** — Always upload to the right folder (vbs-2026, worship, outreach, or village)
 2. **File names** — Use simple names with no spaces. Good: `vbs-kids-playing.jpg` Bad: `IMG_20260510 (2).jpg`
 3. **Photo size** — Keep each photo under 2 MB
 4. **Photo format** — Use .jpg or .png files only
@@ -96,7 +98,7 @@ A new page will appear. Click the green **Create pull request** button.
 ## Quick Summary
 
 1. Go to github.com/dav3k/jcncm
-2. Click photos → click the right category folder (vbs, worship, outreach, or village)
+2. Click photos → click the right category folder (vbs-2026, worship, outreach, or village)
 3. Click Add file → Upload files
 4. Drop your photos
 5. Write a short note
